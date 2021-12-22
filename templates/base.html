@@ -6,13 +6,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>Sandro's Pizza</title>
 </head>
 <body>
 
-    {% block content %}
-    {% endblock content %}
+    <header>
+        <nav class="nav-mobile">
+            <a href="">LOGO</a>
+            <div>
+                <i class="fas fa-bars"></i>
+            </div>
+            
+        </nav>
+    </header>
+
+    <div class="main-container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer__title">Find us on social media</p>
+        <ul class="footer__links">
+        <li>
+            <a href="https://www.facebook.com/" target="_blank"
+            aria-label="link to facebook (opens in new tab)" rel="noopener">
+            <i class="fab fa-facebook-square"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/" target="_blank"
+            aria-label="link to instagram (opens in new tab)" rel="noopener">
+            <i class="fab fa-instagram"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/" target="_blank"
+            aria-label="link to twitter (opens in new tab)" rel="noopener">
+            <i class="fab fa-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.snapchat.com/" target="_blank"
+            aria-label="link to snapchat (opens in new tab)" rel="noopener">
+            <i class="fab fa-snapchat"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/" target="_blank"
+            aria-label="link to youtube (opens in new tab)" rel="noopener">
+            <i class="fab fa-youtube-square"></i>
+            </a>
+        </li>
+        </ul>
+        <p class="footer__copyright">©2021, Made by Sandro Bencinic</p>
+    </footer>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>

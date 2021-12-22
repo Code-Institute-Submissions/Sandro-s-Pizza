@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,400;0,900;1,100;1,400;1,900&display=swap');
+
+* {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*, a {
+    font-family: 'Lato', sans-serif;
+    color: white;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.main-container {
+    width: 100%;
+    margin: auto;
+}
+
+/* BASE.HTML */
+
+/* Navbar and footer */
+
+.nav-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    height: 40px;
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    z-index: 1;
+
+}
+
+.footer {
+    text-align: center;
+    background-color:black;
+    color: white;
+    padding: 25px 0;
+}
+
+.footer__title {
+    font-size: 1.5rem;
+}
+
+.footer__links {
+    display: flex;
+    justify-content: center;
+}
+
+.footer i {
+    font-size: 2rem;
+    margin: 25px 10px;
+}
+
+.footer__copyright {
+    font-size: 0.8rem;
+}
+
+@media only screen and (min-width: 576px) {
+
+}
+
+@media only screen and (min-width: 992px) and (orientation: landscape) {
+    
+}
