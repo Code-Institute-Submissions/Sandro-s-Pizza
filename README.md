@@ -80,6 +80,10 @@
 # WIREFRAMES
 [Back to table of contents](#table-of-contents)
 
+- [Mobile view](/documentation/wireframes/mobile.pdf)
+- [Tablet view](/documentation/wireframes/tablet.pdf)
+- [Desktop view](/documentation/wireframes/desktop.pdf)
+
 ---
 
 # DATABASE SCHEMA
