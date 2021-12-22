@@ -28,6 +28,53 @@
 # USER EXPERIENCE
 [Back to table of contents](#table-of-contents)
 
+
+## User Stories
+
+### First time visitors goals
+
+- *As a first time visitor*, I want to clearly understand the purpose of the website
+
+- *As a first time visitor*, I want to easily navigate through the website on any device or screen size
+
+- *As a first time visitor*, I want to be able to make purchase without registering for account
+
+- *As a first time visitor*, I want to have option to create account if I wish
+
+- *As a first time visitor*, I want to easily search for products and add them to the order
+
+- *As a first time visitor*, I want to be able to view product details before purchasing it
+
+- *As a first time visitor*, I want to be able to chose quantity and size of product
+
+- *As a first time visitor*, I want to know status of my order at all times
+
+- *As a first time visitor*, I want to be able to change my order before completion
+
+- *As a first time visitor*, I want to be make payments in an easy and secure way
+
+- *As a first time visitor*, I want to be notified of my purchases by email
+
+### Frequent users goals
+
+- *As a frequent user*, I want to be able to easily log in to my account
+
+- *As a frequent user*, I want to have records of my past orders attached to my profile
+
+- *As a frequent user*, I want to leave reviews of products
+
+- *As a frequent user*, I want to be able to edit or delete my reviews of products
+
+- *As a frequent user*, I want to be able to change or reset password
+
+### Site owners goals
+
+- *As a site owner*, I want to provide e-commerce service to easily sell my products
+
+- *As a site owner*, I want to be able to add, update and delete products in database
+
+- *As a site owner*, I want to make sure site is safe by providing access to certain areas only to permitted users
+
 ---
 
 # WIREFRAMES
