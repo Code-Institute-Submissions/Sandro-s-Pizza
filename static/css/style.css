@@ -9,7 +9,7 @@
 
 *, a {
     font-family: 'Lato', sans-serif;
-    color: white;
+    color: black;
 }
 
 body {
@@ -29,7 +29,18 @@ li {
 
 .main-container {
     width: 100%;
-    margin: auto;
+    min-height: calc(100vh - 177px - 80px);
+    top: 40px;
+}
+
+.btn {
+    background-color: transparent;
+    border: 1px solid rgb(39, 0, 146);
+    border-radius: 40px;
+    color: rgb(39, 0, 146);
+    padding: 10px;
+    width: 200px;
+    font-size: 1.5rem;
 }
 
 /* BASE.HTML */
@@ -58,6 +69,10 @@ li {
     font-size: 2.5rem;
 }
 
+.navbar__button i {
+    color: white;
+}
+
 .navbar__menu {
     display: none;
     position: absolute;
@@ -66,6 +81,7 @@ li {
     height: 100vh;
     width: 100vw;
     background-color: rgb(39, 0, 146);
+    color: white;
 }
 
 .navbar__close {
@@ -113,6 +129,7 @@ li {
 }
 
 .navbar__link a {
+    color: white;
     font-size: 3rem;
     font-family: 'Staatliches', cursive;
 }
@@ -120,11 +137,11 @@ li {
 .footer {
     text-align: center;
     background-color: rgb(39, 0, 146);
-    color: white;
     padding: 25px 0;
 }
 
 .footer__title {
+    color: white;
     font-size: 1.5rem;
 }
 
@@ -134,11 +151,13 @@ li {
 }
 
 .footer i {
+    color: white;
     font-size: 2rem;
     margin: 25px 10px;
 }
 
 .footer__copyright {
+    color: white;
     font-size: 0.8rem;
 }
 
@@ -148,4 +167,65 @@ li {
 
 @media only screen and (min-width: 992px) and (orientation: landscape) {
     
+}
+
+.allauth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100%;
+}
+
+.allauth__title {
+    font-size: 3rem;
+    color: rgb(39, 0, 146);
+    margin-bottom: 40px;
+}
+
+.login {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.login label {
+    display: none
+}
+
+#id_login,
+#id_password {
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(39, 0, 146);
+    border-radius: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+#id_login::placeholder,
+#id_password::placeholder {
+    color: rgba(39, 0, 146, 0.349);
+    font-weight: 400;
+}
+
+.login label[for=id_remember] {
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+.login p:last-of-type {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.signin {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
 }
