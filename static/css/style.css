@@ -54,8 +54,49 @@ li {
     width: 130px;
 }
 
-.fa-bars {
+.navbar__button {
     font-size: 2rem;
+}
+
+.navbar__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+.navbar__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    border-radius: 40px;
+    width: 80vw;
+    margin: 60px auto;
+    padding: 10px;
+}
+
+.search__input {
+    height: 50px;
+    width: 70%;
+    font-size: 1.5rem;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: blanchedalmond;
+    color: black;
+
+}
+
+.search__btn i {
+    display: inline-block;
+    height: 50px;
+    font-size: 2.5rem;
+    padding: 5px;
+    background-color: blanchedalmond;
+    color: black;
 }
 
 .footer {
