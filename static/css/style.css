@@ -67,6 +67,14 @@ li {
     background-color: white;
 }
 
+.navbar__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2.5rem;
+    color: black;
+}
+
 .navbar__search {
     display: flex;
     justify-content: center;
