@@ -6,4 +6,4 @@ $(".navbar__button").click(function(){
 function swipeleftHandler() {
     alert("swiped")
 }
-$(".pizza-carousel__item").on( "click", swipeleftHandler );
+$(".pizza-carousel__item").on( "swipeleft", swipeleftHandler );
