@@ -1,0 +1,1 @@
+web: gunicorn sandrospizza.wsgi:application
