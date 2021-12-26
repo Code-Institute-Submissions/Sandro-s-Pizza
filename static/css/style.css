@@ -205,8 +205,13 @@ li {
 }
 
 .pizza-carousel__item {
+    display: none;
     width: 90vw;
     margin: 0 auto;
+}
+
+.pizza-carousel__item--active {
+    display: block;
 }
 
 .pizza-carousel__img {
@@ -214,9 +219,13 @@ li {
     border-radius: 10px;
 }
 
-.pizza-carousel__dots {
-    display: flex;
-    justify-content: center;
+.pizza-carousel__description {
+    text-align: center;
+    color: rgba(39, 0, 146, 0.5);
+}
+
+.pizza-carousel__description span {
+    color: rgb(39, 0, 146, 0.5);
 }
 
 .pizza-carousel__dot {

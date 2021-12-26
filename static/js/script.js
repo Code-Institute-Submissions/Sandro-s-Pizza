@@ -1,21 +1,38 @@
 // Adds event listener to nav toggle button on mobile
-$(".navbar__button").click(function(){
-    $(".navbar__menu").toggle( "slide" );
+$(".navbar__button").click(function () {
+    $(".navbar__menu").toggle("slide");
 })
 
-// Adds swipe event to pizza image on index page on mobile phones
-// CODE CREDIT: https://stackoverflow.com/a/56663695
-let touchstartX = 0
-let touchendX = 0
-const slider = $(".pizza-carousel__item")[0]
-function handleGesture() {
-  if (touchendX < touchstartX) alert('swiped left!')
-  if (touchendX > touchstartX) alert('swiped right!')
+
+// Carousel on index page on (refreshes every 5 sec)
+// CODE CREDIT: https://github.com/karlhadwen/carousel/blob/master/app.js
+let carousel = document.getElementsByClassName("pizza-carousel__item")
+let carouselPosition = 0
+let carouselLength = carousel.length
+
+setInterval(moveToNextSlide, 5000);
+
+function updateCarouselPosition() {
+    for (let item of carousel) {
+        item.classList.remove('pizza-carousel__item--active');
+    }
+    carousel[carouselPosition].classList.add('pizza-carousel__item--active');
 }
-slider.addEventListener('touchstart', e => {
-  touchstartX = e.changedTouches[0].screenX
-})
-slider.addEventListener('touchend', e => {
-  touchendX = e.changedTouches[0].screenX
-  handleGesture()
-})
+
+function moveToNextSlide() {
+    if (carouselPosition === carouselLength - 1) {
+        carouselPosition = 0;
+    } else {
+        carouselPosition++;
+    }
+    updateCarouselPosition();
+}
+
+function moveToPrevSlide() {
+    if (carouselPosition === 0) {
+        carouselPosition = carouselLength - 1;
+    } else {
+        carouselPosition--;
+    }
+    updateCarouselPosition();
+}
