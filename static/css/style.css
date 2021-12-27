@@ -198,7 +198,8 @@ li {
     padding: 50px 0;
 }
 
-.pizza-carousel__title {
+.pizza-carousel__title,
+.about__title {
     text-align: center;
     color: rgb(39, 0, 146);
     margin-bottom: 25px;
@@ -228,19 +229,28 @@ li {
     color: rgb(39, 0, 146, 0.5);
 }
 
-.pizza-carousel__dot {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    background-color: rgba(39, 0, 146, 0.2);
-    margin: 10px;
-}
-
 .pizza-carousel__btn {
-    margin: 25px auto 0 auto;
-
+    margin: 25px auto;
 }
 
+.about__title {
+    margin-top: 50px;
+}
+
+.about__img {
+    display: block;
+    width: 90vw;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.about__text {
+    color: rgb(39, 0, 146);
+    width: 95vw;
+    margin: 25px auto 50px auto;
+    text-align: justify;
+    white-space: pre-line;
+}
 
 
 /* ALLAUTH FORMS */
