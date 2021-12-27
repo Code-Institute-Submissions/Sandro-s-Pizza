@@ -5,17 +5,26 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="allauth">
+  <h1 class="allauth__title">{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
+  
+  <form class="signup allauth__form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <div class="center">
+      <button class="btn signup" type="submit">{% trans "Sign Up" %} &raquo;</button>
+    </div>
+  </form>
+  <div class="center">
+    <p class="allauth-smalltext">{% blocktrans %}Already have an account? Then please sign in <a href="{{ login_url }}">HERE</a>.{% endblocktrans %}</p>
+  </div>
+
+</div>
+
 
 {% endblock %}

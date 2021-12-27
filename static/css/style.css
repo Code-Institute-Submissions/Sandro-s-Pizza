@@ -308,20 +308,25 @@ li {
 .allauth__title {
     font-size: 3rem;
     color: rgb(39, 0, 146);
-    margin-bottom: 40px;
+    margin: 25px auto; 
 }
 
-.login {
+.allauth__form {
     width: 90vw;
     margin: 0 auto;
 }
 
-.login label {
+.allauth__form label {
     display: none
 }
 
 #id_login,
-#id_password {
+#id_username,
+#id_email,
+#id_email2,
+#id_password,
+#id_password1,
+#id_password2 {
     width: 100%;
     height: 50px;
     border: 1px solid rgb(39, 0, 146);
@@ -337,17 +342,18 @@ li {
     font-weight: 400;
 }
 
-.login label[for=id_remember] {
+.allauth__form label[for=id_remember] {
     display: inline-block;
     margin-bottom: 40px;
 }
 
-.login p:last-of-type {
+.allauth__form p:last-of-type {
     text-align: center;
 }
 
 .center {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .signin {
@@ -355,6 +361,14 @@ li {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 40px;
+}
+
+.allauth-smalltext {
+    margin: 25px auto;
+}
+
+.signup {
+    margin: 25px auto;
 }
 
 @media only screen and (min-width: 576px) {
