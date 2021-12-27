@@ -384,13 +384,8 @@ li {
 
 .product__price {
     position: absolute;
-    bottom: 20px;
-}
-
-.product__add {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    bottom: 15px;
+    right: 15px;
 }
 
 /* ALLAUTH FORMS */
