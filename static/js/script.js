@@ -20,6 +20,11 @@ $('.item__minus').click(function(){
 
 })
 
+// Toggles textarea on item page
+$('.comment__add').click(function(){
+    $('.comment__new').toggle()
+})
+
 // Carousel on index page on (refreshes every 5 sec)
 // CODE CREDIT: https://github.com/karlhadwen/carousel/blob/master/app.js
 let carousel = document.getElementsByClassName("pizza-carousel__item")

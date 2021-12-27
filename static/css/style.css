@@ -444,6 +444,30 @@ li {
     width: 300px;
 }
 
+.comment {
+    margin: 40px auto;
+}
+
+.comment__add {
+    margin: 10px 0;
+}
+
+.comment__new {
+    display: none;
+}
+
+#review {
+    width: 100%;
+    border-color: rgb(39, 0, 146);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.btn--comment {
+    margin-top: 20px;
+}
+
 /* ALLAUTH FORMS */
 
 .allauth {
