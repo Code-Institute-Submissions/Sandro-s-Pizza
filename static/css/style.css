@@ -96,10 +96,6 @@ li {
     font-weight: 900;
 }
 
-
-
-/* BASE.HTML */
-
 /* Navbar */
 
 .navbar__mobile {
@@ -348,7 +344,54 @@ li {
 
 /* MENU.HTML */
 
+.menu {
+    padding: 25px 0 100px 0;
+}
 
+.menu__title {
+    text-align: center;
+    color: rgb(39, 0, 146);
+    margin-bottom: 25px;
+}
+
+.product {
+    display: flex;
+    padding: 5px;
+    border: 1px solid rgb(39, 0, 146, 0.2);
+    border-radius: 5px;
+    width: 95vw;
+    margin: 5px auto;
+}
+
+.product * {
+    color: rgb(39, 0, 146);
+}
+
+.product__img {
+    height: 25vw;
+    width: 25vw;
+}
+
+.product__info {
+    width: 75vw;
+    padding: 15px;
+    padding-left: 15px;
+}
+
+.product__name {
+    font-weight: 900;
+}
+
+.product__price {
+    position: absolute;
+    bottom: 20px;
+}
+
+.product__add {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
 
 /* ALLAUTH FORMS */
 

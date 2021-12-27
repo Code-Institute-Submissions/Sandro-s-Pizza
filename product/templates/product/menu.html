@@ -1,4 +1,28 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
+    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+    <div class="subscribe">
+        <p class="subscribe__text">Join us today and get free delivery!</p>
+        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+    </div>
+    <div class="menu">
+        <h2 class="menu__title">Choose your pizza</h2>
+
+        <div class="product">
+            <img src="{% static 'images/bg-main-mobile.webp' %}" alt="" class="product__img">
+            <div class="product__info">
+                <h3 class="product__name">Pizza name</h3>
+                <p class="product__description">( ingredients )</p>
+                <p class="product__price">
+                    €<span>10.00</span>
+                </p>
+                <p class="product__add">Add to order</p>
+            </div>
+        </div>
+
+    </div>
+    
+
+
 {% endblock content %}
