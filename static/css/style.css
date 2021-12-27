@@ -46,6 +46,54 @@ li {
     text-align: center;
 }
 
+.checkout {
+    display: none;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    width: 100vw;
+}
+
+.checkout__close,
+.checkout__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: tomato;
+    padding: 15px;
+    height: 80px;
+    margin: 0 5px;
+}
+
+.checkout__close {
+    width: 80px;
+    border-radius: 50%;
+    font-size: 2rem;
+}
+
+.checkout__close i {
+    color: white;
+}
+
+.checkout__content {
+    border-radius: 40px;
+    width: 70vw;
+}
+
+.checkout__content * {
+    color: white;
+}
+
+.checkout__content-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+
+
 /* BASE.HTML */
 
 /* Navbar */
@@ -293,6 +341,10 @@ li {
     width: 50vw;
     margin: 0 auto;
 }
+
+/* MENU.HTML */
+
+
 
 /* ALLAUTH FORMS */
 
