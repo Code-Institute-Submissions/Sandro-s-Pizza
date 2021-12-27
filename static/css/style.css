@@ -49,12 +49,16 @@ li {
 .checkout {
     display: none;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     bottom: 10px;
     width: 100vw;
 }
+
+.checkout--active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .checkout__close,
 .checkout__content {
