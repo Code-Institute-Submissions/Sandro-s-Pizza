@@ -3,6 +3,22 @@ $(".navbar__button").click(function () {
     $(".navbar__menu").toggle("slide");
 })
 
+// Updates item quantity form field on item page
+$('.item__plus').click(function(){
+    value = Number($('#item-quantity').val())
+    value++
+    $('#item-quantity').val(value)
+})
+$('.item__minus').click(function(){
+    value = Number($('#item-quantity').val())
+    if (value === 1) {
+        $('#item-quantity').val(1)
+    } else {
+        value--
+        $('#item-quantity').val(value)
+    }
+
+})
 
 // Carousel on index page on (refreshes every 5 sec)
 // CODE CREDIT: https://github.com/karlhadwen/carousel/blob/master/app.js

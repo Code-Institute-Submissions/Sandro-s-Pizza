@@ -388,6 +388,62 @@ li {
     right: 15px;
 }
 
+/* ITEM.HTML */
+
+.item {
+    padding: 20px;
+}
+
+.item * {
+    color: rgb(39, 0, 146);;
+}
+
+.item__quantity {
+    display: flex;
+}
+
+#item-size {
+    outline: none;
+    border: 1px solid rgb(39, 0, 146, 0.3);
+    height: 30px;
+    width: 200px;
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: white;
+}
+
+#item-quantity {
+    font-size: 1.1rem;
+    text-align: center;
+    width: 140px;
+}
+
+.item__minus,
+.item__plus {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(39, 0, 146);
+    color: white;
+    font-weight: 900;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.item__form {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.btn--item {
+    margin-top: 50px;
+    width: 300px;
+}
+
 /* ALLAUTH FORMS */
 
 .allauth {
