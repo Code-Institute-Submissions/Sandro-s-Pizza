@@ -306,9 +306,17 @@ li {
 }
 
 .allauth__title {
+    text-align: center;
     font-size: 3rem;
     color: rgb(39, 0, 146);
     margin: 25px auto; 
+}
+
+.allauth__text {
+    color: rgb(39, 0, 146);
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 25px;
 }
 
 .allauth__form {
@@ -363,7 +371,8 @@ li {
     margin-bottom: 40px;
 }
 
-.allauth-smalltext {
+.allauth__smalltext {
+    text-align: center;
     margin: 25px auto;
 }
 
