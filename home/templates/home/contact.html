@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+    <div class="subscribe">
+        <p class="subscribe__text">Join us today and get free delivery!</p>
+        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+    </div>
+
+    <div class="contact">
+        <h2 class="contact__title">Contact us</h2>
+        <form class="contact__form" action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn--contact" type="submit">Send</button>
+        </form>
+    </div>
+
+{% endblock content %}
