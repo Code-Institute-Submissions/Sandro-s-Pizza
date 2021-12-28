@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+    <div class="subscribe">
+        <p class="subscribe__text">Join us today and get free delivery!</p>
+        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+    </div>
+    
+    <div class="checkout">
+        <h2 class="checkout__title">Order summary</h2>
+        <div class="checkout__info">
+            <span>Date / Time</span>
+            <span>23/12/2021 at 14:38</span>
+        </div>
+        <hr class="hr--checkout">
+
+        <table>
+            <tr>
+              <th>Item</th>
+              <th>Quantity</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>Margherita (normal)</td>
+              <td>10</td>
+              <td>€20.00</td>
+            </tr>
+            <tr>
+                <td>Margherita (normal)</td>
+                <td>10</td>
+                <td>€20.00</td>
+            </tr>
+            <tr>
+                <td>Margherita (normal)</td>
+                <td>10</td>
+                <td>€20.00</td>
+            </tr>
+            <tr>
+                <td>Margherita (normal)</td>
+                <td>10</td>
+                <td>€20.00</td>
+            </tr>
+            <tr>
+                <td>Delivery fee</td>
+                <td></td>
+                <td>€2.00</td>
+            </tr>
+          </table>
+          <hr class="hr--checkout">
+          <p class="checkout__total">TOTAL: €120.00</p>
+    </div>
+{% endblock content %}
