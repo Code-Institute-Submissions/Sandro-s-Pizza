@@ -504,6 +504,80 @@ li {
     white-space: pre-line;
 }
 
+
+/* ORDER.HTML */
+
+.order * {
+    color: rgb(39, 0, 146);
+}
+
+.order {
+    margin-top: 40px;
+}
+
+.order__title {
+    text-align: center;
+    color: rgb(39, 0, 146);
+    margin-bottom: 40px;
+}
+
+.orderitem {
+    padding: 15px 5px;
+    width: 95vw;
+    margin: 5px auto;
+    border: 1px solid rgb(39, 0, 146, 0.2);
+    border-radius: 5px;
+}
+
+.orderitem__name {
+    margin-bottom: 10px;
+}
+
+.orderitem__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.orderitem__quantity {
+    display: inline-block;
+    width: 40px;
+    text-align: center;
+}
+
+.orderitem__plus,
+.orderitem__minus {
+    display: inline-block;
+    font-weight: 900;
+    border: 1px solid rgb(39, 0, 146, 0.2);
+    width: 21px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.orderitem__remove {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.btn--order {
+    width: 300px;
+    margin: 40px auto;
+}
+
+.hr--order {
+    border: 1px solid rgb(39, 0, 146, 0.2);
+    width: 80vw;
+    margin: 40px auto;
+}
+
+.order__total {
+    font-weight: 900;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 /* ALLAUTH FORMS */
 
 .allauth {
