@@ -4,12 +4,12 @@
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
     <div class="subscribe">
         <p class="subscribe__text">Join us today and get free delivery!</p>
-        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+        <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
     </div>
 
     <div class="message">
         <h2 class="message__title">Message sent!</h2>
-        <a class="message__link" href="">Go back to index page</a>
+        <a class="message__link" href="{% url 'index' %}">Go back to index page</a>
     </div>
 
 {% endblock content %}

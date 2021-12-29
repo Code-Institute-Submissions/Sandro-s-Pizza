@@ -5,7 +5,7 @@
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
     <div class="subscribe">
         <p class="subscribe__text">Join us today and get free delivery!</p>
-        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+        <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
     </div>
 
     <div class="order">
@@ -15,9 +15,9 @@
             <div class="orderitem__info">
                 <span>Normal</span>
                 <div>
-                    <a href="" class="orderitem__plus">-</a>
+                    <span class="orderitem__plus">-</span>
                     <span class="orderitem__quantity">1</span>
-                    <a href="" class="orderitem__minus">+</a>
+                    <span class="orderitem__minus">+</span>
                 </div>
                 <span>€10.00</span>
             </div>
@@ -88,7 +88,7 @@
         <p class="order__total">
             TOTAL: €<span>120.00</span>
         </p>
-        <a href="" class="btn btn--order">Proceed to payment</a>
+        <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
 
     </div>
 {% endblock content %}

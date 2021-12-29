@@ -2,13 +2,11 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}{% trans "Join us" %}{% endblock %}
 
 {% block content %}
 <div class="allauth">
-  <h1 class="allauth__title">{% trans "Sign Up" %}</h1>
-
-
+  <h1 class="allauth__title">{% trans "Join us" %}</h1>
   
   <form class="signup allauth__form" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
@@ -17,7 +15,7 @@
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
     <div class="center">
-      <button class="btn signup" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      <button class="btn signup" type="submit">{% trans "Join us" %} &raquo;</button>
     </div>
   </form>
   <div class="center">

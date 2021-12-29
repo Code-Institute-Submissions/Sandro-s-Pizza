@@ -15,7 +15,7 @@
 
     <header class="navbar">
         <nav class="navbar__mobile">
-            <a href="">
+            <a href="{% url 'index' %}">
                 <img class="navbar__logo" src="{% static 'images/logo.webp' %}" alt="Sandros pizza logo">
             </a>
             <div class="navbar__button">
@@ -32,25 +32,22 @@
                 <hr>
                 <ul class="navbar__links">
                     <li class="navbar__link">
-                        <a href="">Join us</a>
+                        <a href="{% url 'account_signup' %}">Join us</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="">Login</a>
+                        <a href="{% url 'account_login' %}">Login</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="">Menu</a>
+                        <a href="{% url 'menu' %}">Menu</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="">Manage order</a>
+                        <a href="{% url 'order' %}">Manage order</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="">Logout</a>
+                        <a href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="">About us</a>
-                    </li>
-                    <li class="navbar__link">
-                        <a href="">Contact us</a>
+                        <a href="{% url 'contact' %}">Contact us</a>
                     </li>
                 </ul>
             </div>

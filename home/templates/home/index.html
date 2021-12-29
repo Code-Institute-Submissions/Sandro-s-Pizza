@@ -4,7 +4,7 @@
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
     <div class="subscribe">
         <p class="subscribe__text">Join us today and get free delivery!</p>
-        <a href="" class="subscribe__btn btn">JOIN NOW</a>
+        <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
     </div>
 
     <div class="pizza-carousel">
@@ -22,7 +22,7 @@
             <p class="pizza-carousel__description">Pizza three | €<span>16.99</span></p>
         </div>
 
-        <a href="" class="pizza-carousel__btn btn">ORDER NOW</a>
+        <a href="{% url 'menu' %}" class="pizza-carousel__btn btn">ORDER NOW</a>
     </div>
     <hr class="hr-index">
     <div class="about">
