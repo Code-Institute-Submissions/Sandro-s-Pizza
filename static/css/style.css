@@ -675,6 +675,7 @@ li {
 
 .message {
     margin: 200px auto;
+    padding: 0 15px;
 }
 
 .message * {
@@ -690,6 +691,15 @@ li {
     display: block;
     text-align: center;
     margin: 15px auto;
+}
+
+.message__text {
+    text-align: justify;
+    margin: 15px auto;
+}
+
+.message__text span {
+    font-weight: 900;    
 }
 
 /* ALLAUTH FORMS */
