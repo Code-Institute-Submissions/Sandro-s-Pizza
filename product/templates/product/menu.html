@@ -9,17 +9,18 @@
     <div class="menu">
         <h2 class="menu__title">Choose your pizza</h2>
 
+        {% for item in items %}
         <a href="{% url 'item' %}" class="product">
-            <img src="{% static 'images/bg-main-mobile.webp' %}" alt="" class="product__img">
+            <img src="{{ item.image.url }}" alt="" class="product__img">
             <div class="product__info">
-                <h3 class="product__name">Pizza name</h3>
-                <p class="product__description">( ingredients )</p>
+                <h3 class="product__name">{{ item.name }}</h3>
+                <p class="product__description">{{ item.ingredients }}</p>
                 <p class="product__price">
-                    €<span>10.00</span>
+                    €<span>{{ item.price }}</span>
                 </p>
             </div>
         </a>
-
+        {% endfor %}
     </div>
     
 

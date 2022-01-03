@@ -1,8 +1,12 @@
 from django.shortcuts import render
+from .models import Item
 
 
 def menu(request):
-    return render(request, 'product/menu.html')
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'product/menu.html', context)
 
 
 def item(request):
