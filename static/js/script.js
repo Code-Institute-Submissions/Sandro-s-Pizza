@@ -83,3 +83,8 @@ function calculateTotalItem(){
     }
     $("#item-price").text(`${itemPrice.toFixed(2)}`)
 }
+
+// Hides checkout popup
+$(".checkout-popup__close").click(function(){
+    $(".checkout-popup").hide()
+})

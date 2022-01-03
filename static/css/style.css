@@ -47,18 +47,14 @@ li {
 }
 
 .checkout-popup {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    width: 100vw;
-}
-
-.checkout-popup--active {
+    position: sticky;
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom: 10px;
+    width: 100vw;
+    margin-bottom: 30px;
 }
-
 
 .checkout-popup__close,
 .checkout-popup__content {
@@ -445,7 +441,7 @@ li {
 }
 
 .comment {
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
 }
 
 .comment__add {
