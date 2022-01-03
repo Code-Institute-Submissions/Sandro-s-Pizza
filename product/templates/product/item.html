@@ -7,8 +7,8 @@
         <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
     </div>
     <div class="item">
-        <h2 class="item__title">Pizza name</h2>
-        <p class="item__description">( ingredients )</p>
+        <h2 class="item__title">{{ item.name }}</h2>
+        <p class="item__description">{{ item.ingredients }}</p>
 
         <form action="" method="post" class="item__form">
             <select id="item-size" name="size" id="size">
@@ -25,7 +25,7 @@
 
             <div class="center">
                 <button class="btn btn--item" type="submit">
-                    Add to order for €<span>200.00</span>
+                    Add to order for €<span>{{ item.price }}</span>
                 </button>
             </div>
 

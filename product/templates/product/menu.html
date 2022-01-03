@@ -10,7 +10,7 @@
         <h2 class="menu__title">Choose your pizza</h2>
 
         {% for item in items %}
-        <a href="{% url 'item' %}" class="product">
+        <a href="{% url 'item' item.id %}" class="product">
             <img src="{{ item.image.url }}" alt="" class="product__img">
             <div class="product__info">
                 <h3 class="product__name">{{ item.name }}</h3>

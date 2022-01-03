@@ -9,5 +9,8 @@ def menu(request):
     return render(request, 'product/menu.html', context)
 
 
-def item(request):
-    return render(request, 'product/item.html')
+def item(request, item_id):
+    context = {
+        'item': Item.objects.get(id=item_id)
+    }
+    return render(request, 'product/item.html', context)
