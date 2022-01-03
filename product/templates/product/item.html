@@ -11,7 +11,7 @@
         <p class="item__description">{{ item.ingredients }}</p>
 
         <form action="" method="post" class="item__form">
-            <select id="item-size" name="size" id="size">
+            <select id="item-size" name="size">
                 <option value="small">Small</option>
                 <option value="normal" selected>Normal</option>
                 <option value="large">Large</option>
@@ -19,13 +19,13 @@
             
             <div class="item__quantity">
                 <div class="item__minus">-</div>
-                <input type="number" name="quantity" id="item-quantity" min="1" value="1" disabled>
+                <input type="number" name="quantity" id="item-quantity" min="1" value="1" >
                 <div class="item__plus">+</div>
             </div>
 
             <div class="center">
                 <button class="btn btn--item" type="submit">
-                    Add to order for €<span>{{ item.price }}</span>
+                    Add to order for €<span id="item-price">{{ item.price }}</span>
                 </button>
             </div>
 

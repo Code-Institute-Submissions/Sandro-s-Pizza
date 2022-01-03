@@ -8,6 +8,9 @@ $('.item__plus').click(function(){
     value = Number($('#item-quantity').val())
     value++
     $('#item-quantity').val(value)
+    // Manually trigger change event
+    let event = new Event('change');
+    $('#item-quantity')[0].dispatchEvent(event);
 })
 $('.item__minus').click(function(){
     value = Number($('#item-quantity').val())
@@ -17,7 +20,9 @@ $('.item__minus').click(function(){
         value--
         $('#item-quantity').val(value)
     }
-
+    // Manually trigger change event
+    let event = new Event('change');
+    $('#item-quantity')[0].dispatchEvent(event);
 })
 
 // Toggles textarea on item page
@@ -56,4 +61,25 @@ function moveToPrevSlide() {
         carouselPosition--;
     }
     updateCarouselPosition();
+}
+
+// Calculates total price on item page
+let defaultItemPrice = Number($("#item-price").text());
+let itemPrice;
+
+$("#item-size").change(calculateTotalItem)
+$("#item-quantity").change(calculateTotalItem)
+
+function calculateTotalItem(){
+    itemSize = $("#item-size").val();
+    itemQuantity = Number($("#item-quantity").val());
+    itemPrice = defaultItemPrice
+    if(itemSize === "small"){
+        itemPrice = (itemPrice - 2) * itemQuantity
+    } else if(itemSize === "large") {
+        itemPrice = (itemPrice + 2) * itemQuantity
+    } else {
+        itemPrice = itemPrice * itemQuantity
+    }
+    $("#item-price").text(`${itemPrice.toFixed(2)}`)
 }
