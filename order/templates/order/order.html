@@ -10,85 +10,30 @@
 
     <div class="order">
         <h2 class="order__title">Manage your order</h2>
-        <div class="orderitem">
-            <h3 class="orderitem__name">Margherita</h3>
-            <div class="orderitem__info">
-                <span>Normal</span>
-                <div>
-                    <span class="orderitem__plus">-</span>
-                    <span class="orderitem__quantity">1</span>
-                    <span class="orderitem__minus">+</span>
+        {% if bag_items == False %}
+            <p class="order__text">Your order is empty.</p>
+            <a class="order__back" href="{% url 'index' %}">Back to index page</a>
+        {% else %}
+            <div class="orderitem">
+                <h3 class="orderitem__name">Margherita</h3>
+                <div class="orderitem__info">
+                    <span>Normal</span>
+                    <div>
+                        <span class="orderitem__plus">-</span>
+                        <span class="orderitem__quantity">1</span>
+                        <span class="orderitem__minus">+</span>
+                    </div>
+                    <span>€10.00</span>
                 </div>
-                <span>€10.00</span>
+                <span class="orderitem__remove">
+                    <i class="far fa-trash-alt"></i>
+                </span>
             </div>
-            <span class="orderitem__remove">
-                <i class="far fa-trash-alt"></i>
-            </span>
-        </div>
-
-        <div class="orderitem">
-            <h3 class="orderitem__name">Margherita</h3>
-            <div class="orderitem__info">
-                <span>Normal</span>
-                <div>
-                    <a href="" class="orderitem__plus">-</a>
-                    <span class="orderitem__quantity">1</span>
-                    <a href="" class="orderitem__minus">+</a>
-                </div>
-                <span>€10.00</span>
-            </div>
-            <span class="orderitem__remove">
-                <i class="far fa-trash-alt"></i>
-            </span>
-        </div>        <div class="orderitem">
-            <h3 class="orderitem__name">Margherita</h3>
-            <div class="orderitem__info">
-                <span>Normal</span>
-                <div>
-                    <a href="" class="orderitem__plus">-</a>
-                    <span class="orderitem__quantity">1</span>
-                    <a href="" class="orderitem__minus">+</a>
-                </div>
-                <span>€10.00</span>
-            </div>
-            <span class="orderitem__remove">
-                <i class="far fa-trash-alt"></i>
-            </span>
-        </div>        <div class="orderitem">
-            <h3 class="orderitem__name">Margherita</h3>
-            <div class="orderitem__info">
-                <span>Normal</span>
-                <div>
-                    <a href="" class="orderitem__plus">-</a>
-                    <span class="orderitem__quantity">1</span>
-                    <a href="" class="orderitem__minus">+</a>
-                </div>
-                <span>€10.00</span>
-            </div>
-            <span class="orderitem__remove">
-                <i class="far fa-trash-alt"></i>
-            </span>
-        </div>        <div class="orderitem">
-            <h3 class="orderitem__name">Margherita</h3>
-            <div class="orderitem__info">
-                <span>Normal</span>
-                <div>
-                    <a href="" class="orderitem__plus">-</a>
-                    <span class="orderitem__quantity">1</span>
-                    <a href="" class="orderitem__minus">+</a>
-                </div>
-                <span>€10.00</span>
-            </div>
-            <span class="orderitem__remove">
-                <i class="far fa-trash-alt"></i>
-            </span>
-        </div>
-
-        <hr class="hr--order">
-        <p class="order__total">
-            TOTAL: €<span>120.00</span>
-        </p>
-        <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
-
+            <hr class="hr--order">
+            <p class="order__total">
+                TOTAL: €<span>120.00</span>
+            </p>
+            <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
+        {% endif %}
     </div>
 {% endblock content %}
