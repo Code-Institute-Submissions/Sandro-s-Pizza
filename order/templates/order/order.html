@@ -10,28 +10,30 @@
 
     <div class="order">
         <h2 class="order__title">Manage your order</h2>
-        {% if bag_items == False %}
+        {% if bag_items|length == 0  %}
             <p class="order__text">Your order is empty.</p>
             <a class="order__back" href="{% url 'index' %}">Back to index page</a>
         {% else %}
+            {% for item in bag_items %}
             <div class="orderitem">
-                <h3 class="orderitem__name">Margherita</h3>
+                <h3 class="orderitem__name">{{ item.product }}</h3>
                 <div class="orderitem__info">
-                    <span>Normal</span>
+                    <span>{{ item.size }}</span>
                     <div>
-                        <span class="orderitem__plus">-</span>
-                        <span class="orderitem__quantity">1</span>
-                        <span class="orderitem__minus">+</span>
+                        <a href="{% url 'minus_item' item.product.id item.size %}" class="orderitem__minus">-</a>
+                        <span class="orderitem__quantity">{{ item.quantity }}</span>
+                        <a href="{% url 'plus_item' item.product.id item.size %}" class="orderitem__plus">+</a>
                     </div>
-                    <span>€10.00</span>
+                    <span>€{{ item.total }}</span>
                 </div>
-                <span class="orderitem__remove">
+                <a href="{% url 'delete_item' item.product.id item.size %}" class="orderitem__remove">
                     <i class="far fa-trash-alt"></i>
-                </span>
+                </a>
             </div>
+            {% endfor %}
             <hr class="hr--order">
             <p class="order__total">
-                TOTAL: €<span>120.00</span>
+                TOTAL: €<span>{{ grand_total }}</span>
             </p>
             <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
         {% endif %}
