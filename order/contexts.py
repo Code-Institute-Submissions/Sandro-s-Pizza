@@ -6,7 +6,10 @@ import datetime
 def contexts(request):
     bag_items = []
     grand_total = 0
-    delivery_fee = 2
+    if request.user.is_authenticated:
+        delivery_fee = 0
+    else:
+        delivery_fee = 2
     grand_total += delivery_fee
     order_time = None
     bag = request.session.get('bag', {})

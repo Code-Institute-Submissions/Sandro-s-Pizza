@@ -2,10 +2,13 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    <div class="subscribe">
-        <p class="subscribe__text">Join us today and get free delivery!</p>
-        <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-    </div>
+    {% if user.is_anonymous %}
+        <div class="subscribe">
+            <p class="subscribe__text">Join us today and get free delivery!</p>
+            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
+        </div>
+    {% endif %}
+
     <div class="menu">
         <h2 class="menu__title">Choose your pizza</h2>
 
