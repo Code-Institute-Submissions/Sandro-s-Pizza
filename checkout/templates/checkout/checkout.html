@@ -11,8 +11,9 @@
     <div class="checkout">
         <h2 class="checkout__title">Order summary</h2>
         <div class="checkout__info">
-            <span>Date / Time</span>
-            <span>23/12/2021 at 14:38</span>
+            {% if order_time %}
+            <span>{{ order_time }}</span>
+            {% endif %}
         </div>
         <hr class="hr--checkout">
 
@@ -22,33 +23,20 @@
               <th>Quantity</th>
               <th>Price</th>
             </tr>
-            <tr>
-              <td>Margherita (normal)</td>
-              <td>10</td>
-              <td>€20.00</td>
-            </tr>
-            <tr>
-                <td>Margherita (normal)</td>
-                <td>10</td>
-                <td>€20.00</td>
-            </tr>
-            <tr>
-                <td>Margherita (normal)</td>
-                <td>10</td>
-                <td>€20.00</td>
-            </tr>
-            <tr>
-                <td>Margherita (normal)</td>
-                <td>10</td>
-                <td>€20.00</td>
-            </tr>
+            {% for item in bag_items %}
+                <tr>
+                <td>{{ item.product }} ({{ item.size }})</td>
+                <td>{{ item.quantity }}</td>
+                <td>€{{ item.total }}</td>
+                </tr>
+            {% endfor %}
             <tr>
                 <td>Delivery fee</td>
                 <td></td>
-                <td>€2.00</td>
+                <td>€{{ delivery_fee|floatformat:2 }}</td>
             </tr>
           </table>
           <hr class="hr--checkout">
-          <p class="checkout__total">TOTAL: €120.00</p>
+          <p class="checkout__total">TOTAL: €{{ grand_total }}</p>
     </div>
 {% endblock content %}
