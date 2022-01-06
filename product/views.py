@@ -33,3 +33,19 @@ def delete_review(request, item_id, review_id):
     review = Review.objects.get(id=review_id)
     review.delete()
     return redirect('item', item_id)
+
+def edit_review(request, review_id):
+    review = Review.objects.get(id=review_id)
+    if request.method == 'POST':
+        print("PRINT: ", review)
+        title = request.POST['review__title']
+        content = request.POST['review__text']
+        review.title = title
+        review.content = content
+        review.save()
+        item_id = review.item.id
+        return redirect('item', item_id)
+    context = {
+        'review': review,
+    }
+    return render(request, 'product/edit_review.html', context)
