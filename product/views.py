@@ -13,7 +13,7 @@ def menu(request):
 def item(request, item_id):
     context = {
         'item': Item.objects.get(id=item_id),
-        'reviews': Review.objects.all(),
+        'reviews': reversed(Review.objects.all()),
         'show_bag': True
     }
     return render(request, 'product/item.html', context)
@@ -26,5 +26,10 @@ def add_review(request, item_id):
     current_item = Item.objects.get(id=item_id)
     Review.objects.create(
         user_profile=current_user, item=current_item, title=title, content=content)
+    return redirect('item', item_id)
 
+
+def delete_review(request, item_id, review_id):
+    review = Review.objects.get(id=review_id)
+    review.delete()
     return redirect('item', item_id)

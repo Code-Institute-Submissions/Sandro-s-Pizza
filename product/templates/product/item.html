@@ -54,8 +54,16 @@
                 {% for review in reviews %}
                 <div class="comment-single">
                     <div class="comment-single__title">
+                        <div class="comment-single__btns">
+                            <a href="">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="{% url 'delete_review' item.id review.id %}">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </div>
                         <p>{{ review.title }}</p>
-                        <p>{{ review.user }}</p>
+                        <p>{{ review.user_profile }}</p>
                     </div>
                     <div class="comment-single__text">{{ review.content }}
                     </div>
