@@ -38,59 +38,32 @@
         <hr class="hr-index">
 
         <div class="comment">
-            <h2 class="comment__title">Rating</h2>
-            <p class="comment__add">Leave a review</p>
-            <form class="comment__new" action="">
-                <input type="text" id="review__title" name="review__title" placeholder="Review title">
-                <textarea name="review__text" id="review__text" cols="30" rows="10"></textarea>
-                <div class="center">
-                    <button class="btn btn--comment" type="submit">Post</button>
+            <h2 class="comment__title">User reviews</h2>
+            {%  if user.is_authenticated %}
+                <p class="comment__add">Leave a review</p>
+                <form class="comment__new" action="{% url 'add_review' item.id %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" id="review__title" name="review__title" placeholder="Review title">
+                    <textarea name="review__text" id="review__text" cols="30" rows="10"></textarea>
+                    <div class="center">
+                        <button class="btn btn--comment" type="submit">Post</button>
+                    </div>
+                </form>
+            {% endif %}
+            {% if reviews %}
+                {% for review in reviews %}
+                <div class="comment-single">
+                    <div class="comment-single__title">
+                        <p>{{ review.title }}</p>
+                        <p>{{ review.user }}</p>
+                    </div>
+                    <div class="comment-single__text">{{ review.content }}
+                    </div>
                 </div>
-            </form>
-            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>
-            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>            <div class="comment-single">
-                <div class="comment-single__title">
-                    <p>Title</p>
-                    <p>User</p>
-                </div>
-                <div class="comment-single__text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis, voluptates. Similique dolorum voluptatibus, quam maxime porro commodi. Error, dicta mollitia.
-                </div>
-            </div>
+                {% endfor %}
+            {% else %}
+            <p style="text-align: center;">No reviews yet.</p>
+            {% endif %}
         </div>
 
     </div>

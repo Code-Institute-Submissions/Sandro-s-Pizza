@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Item
+from django.shortcuts import render, redirect
+from .models import Item, Review
 
 
 def menu(request):
@@ -13,6 +13,18 @@ def menu(request):
 def item(request, item_id):
     context = {
         'item': Item.objects.get(id=item_id),
+        'reviews': Review.objects.all(),
         'show_bag': True
     }
     return render(request, 'product/item.html', context)
+
+
+def add_review(request, item_id):
+    title = request.POST['review__title']
+    content = request.POST['review__text']
+    current_user = request.user
+    current_item = Item.objects.get(id=item_id)
+    Review.objects.create(
+        user_profile=current_user, item=current_item, title=title, content=content)
+
+    return redirect('item', item_id)

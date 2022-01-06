@@ -445,7 +445,7 @@ li {
 }
 
 .comment__add {
-    margin: 10px 0;
+    margin: 10px auto;
     padding: 5px;
     border: 1px solid rgb(39, 0, 146, 0.4);
     border-radius: 5px;
@@ -454,6 +454,10 @@ li {
 
 .comment__new {
     display: none;
+}
+
+.comment__title {
+    text-align: center;
 }
 
 #review__title {
