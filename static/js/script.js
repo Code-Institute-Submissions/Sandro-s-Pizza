@@ -36,7 +36,9 @@ let carousel = document.getElementsByClassName("pizza-carousel__item")
 let carouselPosition = 0
 let carouselLength = carousel.length
 
-setInterval(moveToNextSlide, 5000);
+if (carousel.length > 0) {
+    setInterval(moveToNextSlide, 5000);
+}
 
 function updateCarouselPosition() {
     for (let item of carousel) {
