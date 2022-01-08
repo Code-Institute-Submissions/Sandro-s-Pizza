@@ -54,6 +54,7 @@
                 {% for review in reviews %}
                 <div class="comment-single">
                     <div class="comment-single__title">
+                        {% if request.user == review.user_profile %}
                         <div class="comment-single__btns">
                             <a href="{% url 'edit_review' review.id %}">
                                 <i class="far fa-edit"></i>
@@ -62,6 +63,7 @@
                                 <i class="far fa-trash-alt"></i>
                             </a>
                         </div>
+                        {% endif %}
                         <p>{{ review.title }}</p>
                         <p>{{ review.user_profile }}</p>
                     </div>
