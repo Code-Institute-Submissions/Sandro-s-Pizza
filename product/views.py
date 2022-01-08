@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Item, Review
 
 
@@ -28,12 +29,14 @@ def add_review(request, item_id):
     current_item = Item.objects.get(id=item_id)
     Review.objects.create(
         user_profile=current_user, item=current_item, title=title, content=content)
+    messages.add_message(request, messages.INFO, 'New review added.')
     return redirect('item', item_id)
 
 
 def delete_review(request, item_id, review_id):
     review = Review.objects.get(id=review_id)
     review.delete()
+    messages.add_message(request, messages.INFO, 'Review deleted.')
     return redirect('item', item_id)
 
 def edit_review(request, review_id):
@@ -46,6 +49,7 @@ def edit_review(request, review_id):
         review.content = content
         review.save()
         item_id = review.item.id
+        messages.add_message(request, messages.INFO, 'Review updated.')
         return redirect('item', item_id)
     context = {
         'review': review,

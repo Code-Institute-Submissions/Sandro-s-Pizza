@@ -88,3 +88,8 @@ function calculateTotalItem(){
 $(".checkout-popup__close").click(function(){
     $(".checkout-popup").hide()
 })
+
+// Hides flash message
+$(".flash__close").click(function(){
+    $(".flash").hide();
+})

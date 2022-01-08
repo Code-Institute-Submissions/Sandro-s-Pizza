@@ -831,6 +831,36 @@ li {
     margin-top: 10px;
 }
 
+/* FLASH MESSAGE */
+
+.flash {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 5px;
+    right: 5px;
+    margin: 5px auto;
+    padding: 5px 5px 25px 5px;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s;
+}
+
+.flash__message {
+    color: white;
+    margin: 5px auto;
+}
+
+.flash__close {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: white;
+}
+
+.flash__close i {
+    color: white;
+}
+
 @media only screen and (min-width: 576px) {
 
 }
