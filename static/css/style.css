@@ -748,6 +748,8 @@ li {
     align-items: center;
     width: 100vw;
     min-height: calc(100vh - 177px - 80px);
+    margin-bottom: 40px;
+    top: 20px;
 }
 
 .allauth__title {
@@ -823,6 +825,10 @@ li {
 
 .signup {
     margin: 25px auto;
+}
+
+.logout {
+    margin-top: 10px;
 }
 
 @media only screen and (min-width: 576px) {

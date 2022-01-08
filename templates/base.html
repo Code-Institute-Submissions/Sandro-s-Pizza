@@ -31,12 +31,14 @@
                 </form>
                 <hr>
                 <ul class="navbar__links">
+                    {% if user.is_anonymous %}
                     <li class="navbar__link">
                         <a href="{% url 'account_signup' %}">Join us</a>
                     </li>
                     <li class="navbar__link">
                         <a href="{% url 'account_login' %}">Login</a>
                     </li>
+                    {% endif %}
                     <li class="navbar__link">
                         <a href="{% url 'menu' %}">Menu</a>
                     </li>
@@ -44,11 +46,13 @@
                         <a href="{% url 'order' %}">Manage order</a>
                     </li>
                     <li class="navbar__link">
-                        <a href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    <li class="navbar__link">
                         <a href="{% url 'contact' %}">Contact us</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="navbar__link">
+                        <a href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
