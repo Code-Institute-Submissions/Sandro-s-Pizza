@@ -41,4 +41,25 @@
           <hr class="hr--checkout">
           <p class="checkout__total">TOTAL: €{{ grand_total }}</p>
     </div>
+    <p class="checkout-preform-text">Please fill in your details to complete order.</p>
+    <form class="checkout-form" action="{% url 'checkout' %}" method="post" id="payment-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="mb-3" id="card-element"></div>
+        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+        {% if user.is_authenticated %}
+            <label class="form-check-label" for="save-info">Save this delivery information to my profile</label>
+            <input class="form-check-input" type="checkbox" id="save-info" name="save-info" checked>
+        {% else %}
+            <label class="form-check-label" for="id-save-info">
+                <a class="text-info" href="">Create an account</a> or 
+                <a class="text-info" href="">login</a> to save this information
+            </label>
+        {% endif %}
+
+        <button id="submit-button" class="btn btn--checkout">
+            <span class="font-weight-bold">Complete Order</span>
+        </button>
+    </form>
 {% endblock content %}
