@@ -615,6 +615,14 @@ li {
     font-size: 1.5rem;
 }
 
+.delivery-fee {
+    text-align: end;
+    width: 95vw;
+    padding-right: 5px;
+    margin: auto;
+    font-style: italic;
+}
+
 /* CHECKOUT.HTML */
 
 .checkout * {

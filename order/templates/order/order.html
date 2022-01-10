@@ -33,6 +33,7 @@
                 </a>
             </div>
             {% endfor %}
+            <p class="delivery-fee">(Delivery fee: €{{ delivery_fee|floatformat:2 }})</p>
             <hr class="hr--order">
             <p class="order__total">
                 TOTAL: €<span>{{ grand_total }}</span>
