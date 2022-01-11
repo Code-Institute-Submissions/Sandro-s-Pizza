@@ -9,8 +9,11 @@ def checkout(request):
         messages.error(request, "Your bag is empty at the moment!")
         return redirect(reverse('menu'))
     form = OrderForm()
+
     context = {
-        'form': form
+        'form': form,
+        'stripe_public_key': "pk_test_0SMREd7Vdweb1MGRi8S0EycR00JVzSAs5O",
+        'client_secret': "test client secret"
     }
     return render(request, 'checkout/checkout.html', context)
 
