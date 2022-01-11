@@ -925,6 +925,14 @@ li {
     margin-bottom: 25px;
 }
 
+#card-errors {
+    text-align: center;
+}
+
+#card-errors * {
+    color: red;
+}
+
 @media only screen and (min-width: 576px) {
 
 }
