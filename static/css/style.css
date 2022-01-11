@@ -903,7 +903,8 @@ li {
     color: rgb(39, 0, 146);
 }
 
-.checkout-form input {
+.checkout-form input,
+#card-element {
     width: 100%;
     height: 50px;
     border: 1px solid rgb(39, 0, 146);
