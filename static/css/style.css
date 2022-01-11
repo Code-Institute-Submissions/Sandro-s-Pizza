@@ -755,7 +755,7 @@ li {
 }
 
 .message__text {
-    text-align: justify;
+    text-align: center;
     margin: 15px auto;
 }
 
