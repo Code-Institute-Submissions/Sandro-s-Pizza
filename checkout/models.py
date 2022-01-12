@@ -32,6 +32,9 @@ class Order(models.Model):
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
         self.save()
 
+    def __str__(self):
+        return self.order_number
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(
@@ -41,3 +44,6 @@ class OrderItem(models.Model):
     quantity = models.IntegerField(default=0)
     orderitem_total = models.DecimalField(
         max_digits=10, decimal_places=2, null=True, default=0)
+
+    def __str__(self):
+        return f'{self.item.name} / {self.order.order_number}'

@@ -55,7 +55,6 @@ form.addEventListener('submit', function(ev) {
                 var errorDiv = document.getElementById('card-errors');
                 var html = `<span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                $('#loading-overlay').fadeToggle(100);
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
