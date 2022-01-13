@@ -946,6 +946,87 @@ li {
     color: red;
 }
 
+/* ADD/EDIT ITEM */
+
+.add-edit-item {
+    color: rgba(39, 0, 146);
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 25px auto;
+}
+
+.form-item {
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.form-item * {
+    color: rgba(39, 0, 146);
+}
+
+.form-item label {
+    display: none;
+}
+
+.form-item input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid rgb(39, 0, 146);
+    border-radius: 10px;
+    outline-color: rgb(39, 0, 146);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.form-item input::placeholder {
+    color: rgba(39, 0, 146, 0.4);
+    font-weight: 400;
+}
+
+.form-item input[type="checkbox"] {
+    display: none;
+}
+
+.form-item img {
+    display: block;
+    margin: 10px auto;
+}
+
+.btn-file {
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+    padding: 2px;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.save-photo,
+.add-product {
+   margin: 0 auto;
+   margin-bottom: 25px; 
+}
+
+#filename {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 @media only screen and (min-width: 576px) {
 
 }
@@ -953,3 +1034,4 @@ li {
 @media only screen and (min-width: 992px) and (orientation: landscape) {
     
 }
+
