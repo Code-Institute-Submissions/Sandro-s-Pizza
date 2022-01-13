@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from .models import Item, Review
+from .forms import ProductForm
 
 
 def menu(request):
@@ -55,3 +56,22 @@ def edit_review(request, review_id):
         'review': review,
     }
     return render(request, 'product/edit_review.html', context)
+
+
+def add_product(request):
+    """ Add a product to the store """
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added product!')
+            return redirect(reverse('menu'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm()
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'product/add_product.html', context)
