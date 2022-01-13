@@ -62,6 +62,10 @@ def add_product(request):
     """ Add a product to the store """
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
+        if request.FILES == {}:
+            messages.error(request, 'Upload FAILED: Image field is mandatory!')
+            return redirect(reverse('add_product'))
+
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added product!')
