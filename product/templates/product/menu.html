@@ -13,16 +13,26 @@
         <h2 class="menu__title">Choose your pizza</h2>
 
         {% for item in items %}
-        <a href="{% url 'item' item.id %}" class="product">
-            <img src="{{ item.image.url }}" alt="" class="product__img">
-            <div class="product__info">
-                <h3 class="product__name">{{ item.name }}</h3>
-                <p class="product__description">{{ item.ingredients }}</p>
-                <p class="product__price">
-                    €<span>{{ item.price }}</span>
-                </p>
+        <div>
+            <a href="{% url 'item' item.id %}" class="product">
+                <img src="{{ item.image.url }}" alt="" class="product__img">
+                <div class="product__info">
+                    <h3 class="product__name">{{ item.name }}</h3>
+                    <p class="product__description">{{ item.ingredients }}</p>
+                    <p class="product__price">
+                        €<span>{{ item.price }}</span>
+                    </p>
+                </div>
+            </a>
+            <div class="admin-controls">
+                <a href="{% url 'edit_product' item.id %}">
+                    <i class="far fa-edit"></i>
+                </a>
+                <a href="{% url 'delete_product' item.id %}">
+                    <i class="far fa-trash-alt"></i>
+                </a>
             </div>
-        </a>
+        </div>
         {% endfor %}
     </div>
     

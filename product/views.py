@@ -106,3 +106,11 @@ def edit_product(request, item_id):
     }
 
     return render(request, 'product/edit_product.html', context)
+
+
+def delete_product(request, item_id):
+    """ Delete an item from the database """
+    item = get_object_or_404(Item, pk=item_id)
+    item.delete()
+    messages.success(request, 'Item deleted!')
+    return redirect(reverse('menu'))
