@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Item, Review
 from .forms import ProductForm
 
@@ -23,6 +24,7 @@ def item(request, item_id):
     return render(request, 'product/item.html', context)
 
 
+@login_required
 def add_review(request, item_id):
     title = request.POST['review__title']
     content = request.POST['review__text']
@@ -34,12 +36,15 @@ def add_review(request, item_id):
     return redirect('item', item_id)
 
 
+@login_required()
 def delete_review(request, item_id, review_id):
     review = Review.objects.get(id=review_id)
     review.delete()
     messages.add_message(request, messages.INFO, 'Review deleted.')
     return redirect('item', item_id)
 
+
+@login_required()
 def edit_review(request, review_id):
     review = Review.objects.get(id=review_id)
     if request.method == 'POST':
@@ -58,8 +63,13 @@ def edit_review(request, review_id):
     return render(request, 'product/edit_review.html', context)
 
 
+@login_required()
 def add_product(request):
     """ Add a product to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Permission denied.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if request.FILES == {}:
@@ -81,8 +91,13 @@ def add_product(request):
     return render(request, 'product/add_product.html', context)
 
 
+@login_required()
 def edit_product(request, item_id):
     """ Edit product in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Permission denied.')
+        return redirect(reverse('index'))
+
     product = get_object_or_404(Item, pk=item_id)
     if request.method == 'POST':
         
@@ -108,8 +123,13 @@ def edit_product(request, item_id):
     return render(request, 'product/edit_product.html', context)
 
 
+@login_required()
 def delete_product(request, item_id):
     """ Delete an item from the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Permission denied.')
+        return redirect(reverse('index'))
+
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
     messages.success(request, 'Item deleted!')

@@ -27,4 +27,15 @@
   </div>
 </div>
 
+{% if messages %}
+<div class="flash" style="display: block;">
+    {% for message in messages %}
+    <p class="flash__message">{{ message }}</p>
+    {% endfor %}
+    <span class="flash__close">
+        Close <i class="fas fa-times"></i>
+    </span>
+</div>
+{% endif %}
+
 {% endblock %}

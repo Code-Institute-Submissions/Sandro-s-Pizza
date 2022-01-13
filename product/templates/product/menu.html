@@ -24,6 +24,7 @@
                     </p>
                 </div>
             </a>
+            {% if request.user.is_superuser %}
             <div class="admin-controls">
                 <a href="{% url 'edit_product' item.id %}">
                     <i class="far fa-edit"></i>
@@ -32,6 +33,7 @@
                     <i class="far fa-trash-alt"></i>
                 </a>
             </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>
