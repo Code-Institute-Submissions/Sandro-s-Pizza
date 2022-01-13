@@ -344,6 +344,11 @@ li {
     padding: 25px 0 100px 0;
 }
 
+.add-new-item {
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
 .menu__title {
     text-align: center;
     color: rgb(39, 0, 146);
