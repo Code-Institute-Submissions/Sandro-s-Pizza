@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from .models import Item, Review
 from .forms import ProductForm
@@ -79,3 +79,30 @@ def add_product(request):
     }
 
     return render(request, 'product/add_product.html', context)
+
+
+def edit_product(request, item_id):
+    """ Edit product in the store """
+    product = get_object_or_404(Item, pk=item_id)
+    if request.method == 'POST':
+        
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if request.POST.get('image-clear') == 'on':
+            messages.error(request, 'Edit FAILED: Image field is mandatory!')
+            return redirect(reverse('edit_product', args=[item_id]))
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully edited product details!')
+            return redirect(reverse('menu'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product)
+    
+    context = {
+        'form': form,
+        'item': product,
+    }
+
+    return render(request, 'product/edit_product.html', context)
