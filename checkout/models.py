@@ -2,9 +2,13 @@ import uuid
 from django.db import models
 from django.db.models import Sum
 from product.models import Item
+from profiles.models import UserProfile
 
 
 class Order(models.Model):
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL, 
+        null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     phone_number = models.CharField(max_length=100)
