@@ -51,6 +51,9 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="navbar__link">
+                        <a href="{% url 'profile' %}">Edit profile</a>
+                    </li>
+                    <li class="navbar__link">
                         <a href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     {% endif %}
