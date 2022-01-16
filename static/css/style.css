@@ -641,18 +641,21 @@ li {
     font-style: italic;
 }
 
-/* CHECKOUT.HTML */
+/* CHECKOUT.HTML & UPDATE_PROFILE.HTML*/
 
-.checkout * {
+.checkout *,
+.update-profile * {
     color: rgb(39, 0, 146);
 }
 
-.checkout {
+.checkout,
+.update-profile {
     margin-top: 40px;
     padding: 10px;
 }
 
-.checkout__title {
+.checkout__title,
+.update-profile__title {
     text-align: center;
     color: rgb(39, 0, 146);
     margin-bottom: 40px;
@@ -910,18 +913,21 @@ li {
     color: white;
 }
 
-/* CHECKOUT FORM */
+/* CHECKOUT FORM & UPDATE PROFILE FORM*/
 
-.checkout-form {
+.checkout-form,
+.update-profile-form {
     width: 90vw;
     margin: 0 auto;
 }
 
-.checkout-form * {
+.checkout-form *,
+.update-profile-FORM * {
     color: rgb(39, 0, 146);
 }
 
 .checkout-form input,
+.update-profile-form input,
 #card-element {
     width: 100%;
     height: 50px;
@@ -933,12 +939,14 @@ li {
     padding: 10px;
 }
 
-.checkout-form input::placeholder {
+.checkout-form input::placeholder,
+.update-profile-form input::placeholder {
     color: rgba(39, 0, 146, 0.4);
     font-weight: 400;
 }
 
-.btn--checkout {
+.btn--checkout,
+.btn--update-profile {
     margin: auto;
     margin-bottom: 25px;
 }

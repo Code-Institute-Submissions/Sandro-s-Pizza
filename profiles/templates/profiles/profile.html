@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+    {% if user.is_anonymous %}
+        <div class="subscribe">
+            <p class="subscribe__text">Join us today and get free delivery!</p>
+            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
+        </div>
+    {% endif %}
+
+    <div class="update-profile">
+        <h2 class="update-profile__title">Update profile</h2>
+        <form class="update-profile-form" action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn--update-profile" type="submit">Update</button>
+        </form>
+    </div>
+
+{% endblock content %}
