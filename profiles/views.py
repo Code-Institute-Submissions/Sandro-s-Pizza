@@ -16,6 +16,7 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
+    print(profile)
 
     context = {
         'form': form,

@@ -550,21 +550,25 @@ li {
 
 /* ORDER.HTML */
 
-.order * {
+.order *,
+.orderhistory * {
     color: rgb(39, 0, 146);
 }
 
-.order {
+.order,
+.orderhistory {
     margin-top: 40px;
 }
 
-.order__title {
+.order__title,
+.orderhistory__title {
     text-align: center;
     color: rgb(39, 0, 146);
     margin-bottom: 40px;
 }
 
-.order__text {
+.order__text,
+.orderhistory__text {
     text-align: center;
     margin: 15px auto;
 }
@@ -576,10 +580,26 @@ li {
     text-decoration: underline;
 }
 
-.orderitem {
+.orderitem,
+.orderhistory__item {
     padding: 15px 5px;
     width: 95vw;
     margin: 5px auto;
+    border: 1px solid rgb(39, 0, 146, 0.2);
+    border-radius: 5px;
+}
+
+.orderhistory__total {
+    font-weight: bold;
+    margin: 10px 0 25px 0;
+}
+
+.orderhistory__btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    padding: 5px;
+    text-align: center;
     border: 1px solid rgb(39, 0, 146, 0.2);
     border-radius: 5px;
 }

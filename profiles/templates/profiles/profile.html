@@ -18,4 +18,21 @@
         </form>
     </div>
 
+    <div class="orderhistory">
+        <h2 class="orderhistory__title">Order History</h2>
+        {% if orders|length == 0  %}
+            <p class="orderhistory__text">Your order history is empty.</p>
+        {% else %}
+            {% for order in orders %}
+                <div class="orderhistory__item">
+                    <p class="orderhistory__date">{{ order.date }}</p>
+                    <p class="orderhistory__number">Order number: #{{ order.order_number|truncatechars:10 }}</p>
+                    <p class="orderhistory__total">TOTAL: €{{ order.order_total }}</p>
+                    <a class="orderhistory__btn" href="">View Order</a>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+
 {% endblock content %}
