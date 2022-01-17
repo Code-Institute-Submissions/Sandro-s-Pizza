@@ -30,6 +30,11 @@ $('.comment__add').click(function(){
     $('.comment__new').toggle()
 })
 
+// Back button
+$(".js-back").click(function () {
+    window.location.href = document.referrer;
+});
+
 // Carousel on index page on (refreshes every 5 sec)
 // CODE CREDIT: https://github.com/karlhadwen/carousel/blob/master/app.js
 let carousel = document.getElementsByClassName("pizza-carousel__item")

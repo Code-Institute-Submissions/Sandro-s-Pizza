@@ -28,7 +28,7 @@
                     <p class="orderhistory__date">{{ order.date }}</p>
                     <p class="orderhistory__number">Order number: #{{ order.order_number|truncatechars:10 }}</p>
                     <p class="orderhistory__total">TOTAL: €{{ order.order_total }}</p>
-                    <a class="orderhistory__btn" href="">View Order</a>
+                    <a class="orderhistory__btn" href="{% url 'saved_order' order.order_number %}">View Order</a>
                 </div>
             {% endfor %}
         {% endif %}

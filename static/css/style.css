@@ -661,6 +661,30 @@ li {
     font-style: italic;
 }
 
+/* SAVED_ORDER.HTML */
+
+.order-details {
+    width: 95vw;
+    margin: 0 auto 25px auto;
+    border: 1px solid rgb(39, 0, 146);
+    border-radius: 5px;
+    padding: 25px 5px;
+}
+
+.order-details * {
+    text-align: center;
+    color: rgb(39, 0, 146);
+}
+
+.order-details h3 {
+    margin: 25px auto;
+}
+
+.order-details__title {
+    color: rgb(39, 0, 146);
+    text-align: center;
+    margin: 25px auto;
+}
 /* CHECKOUT.HTML & UPDATE_PROFILE.HTML*/
 
 .checkout *,

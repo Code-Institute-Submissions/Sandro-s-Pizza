@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from .models import Order, OrderItem
 from product.models import Item
+from profiles.models import UserProfile
 import json
 import time
 
@@ -30,8 +31,8 @@ class StripeWH_Handler:
         """
         Handle the payment_intent.payment_failed webhook from Stripe
         """
+
         intent = event.data.object
-        print(intent)
         pid = intent.id
         bag = intent.metadata.bag
         save_info = intent.metadata.save_info

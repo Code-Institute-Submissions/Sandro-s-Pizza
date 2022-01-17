@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from checkout.models import Order
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -16,7 +17,6 @@ def profile(request):
 
     form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-    print(profile)
 
     context = {
         'form': form,
@@ -24,3 +24,12 @@ def profile(request):
     }
 
     return render(request, 'profiles/profile.html', context)
+
+
+def saved_order(request, order_number):
+
+    order = get_object_or_404(Order, order_number=order_number)
+    context = {
+        'order': order,
+    }
+    return render(request, 'profiles/saved_order.html', context)
