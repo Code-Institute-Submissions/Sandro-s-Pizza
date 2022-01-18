@@ -30,7 +30,14 @@
                         <i class="fas fa-search"></i>
                     </div>
                 </form>
+                {% if user.is_authenticated %}
+                    <p class="navbar__user">
+                        Logged in as 
+                        <strong>{{ request.user }}</strong>
+                    </p>
+                {% endif %}
                 <hr>
+
                 <ul class="navbar__links">
                     {% if user.is_anonymous %}
                     <li class="navbar__link">
