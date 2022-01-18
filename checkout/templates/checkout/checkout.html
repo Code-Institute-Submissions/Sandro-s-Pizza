@@ -49,8 +49,11 @@
         <div id="card-errors" role="alert"></div>
         <input type="hidden" value="{{ client_secret }}" name="client_secret">
         {% if user.is_authenticated %}
-            <label class="form-check-label" for="save-info">Save this delivery information to my profile</label>
-            <input class="form-check-input" type="checkbox" id="save-info" name="save-info" checked>
+            <p class="form-check-label" for="save-info">
+                Save this delivery information to my profile
+                <input class="form-check-input" type="checkbox" id="save-info" name="save-info" checked>
+            </p>
+
         {% else %}
             <label class="form-check-label" for="id-save-info">
                 <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
@@ -58,9 +61,7 @@
             </label>
         {% endif %}
 
-        <button id="submit-button" class="btn btn--checkout">
-            <span class="font-weight-bold">Complete Order</span>
-        </button>
+        <button id="submit-button" class="btn btn--checkout">Complete Order</button>
     </form>
 {% endblock content %}
 

@@ -992,7 +992,6 @@ li {
 .update-profile-form input,
 #card-element {
     width: 100%;
-    height: 50px;
     border: 1px solid rgb(39, 0, 146);
     border-radius: 10px;
     outline-color: rgb(39, 0, 146);
@@ -1011,6 +1010,11 @@ li {
 .btn--update-profile {
     margin: auto;
     margin-bottom: 25px;
+    color: white !important;
+}
+
+#save-info {
+    width: 20px;
 }
 
 #card-errors {
