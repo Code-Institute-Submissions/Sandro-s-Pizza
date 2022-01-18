@@ -29,7 +29,7 @@ def contexts(request):
                 'quantity': quantity,
                 'product': product,
                 'size': size,
-                'total': total            })
+                'total': total})
     context = {
         'bag_items': bag_items,
         'grand_total': grand_total,

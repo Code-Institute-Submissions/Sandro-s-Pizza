@@ -4,7 +4,6 @@ from django.db.models import Sum
 from product.models import Item
 from profiles.models import UserProfile
 
-
 class Order(models.Model):
     user_profile = models.ForeignKey(
         UserProfile, on_delete=models.SET_NULL, 
