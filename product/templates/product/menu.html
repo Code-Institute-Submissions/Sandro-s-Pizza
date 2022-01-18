@@ -17,7 +17,7 @@
         {% for item in items %}
         <div>
             <a href="{% url 'item' item.id %}" class="product">
-                <img src="{{ item.image.url }}" alt="" class="product__img">
+                <div class="product__img" style="background-image: url({{item.image.url}});"></div>
                 <div class="product__info">
                     <h3 class="product__name">{{ item.name }}</h3>
                     <p class="product__description">{{ item.ingredients }}</p>

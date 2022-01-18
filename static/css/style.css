@@ -385,6 +385,8 @@ li {
 .product__img {
     height: 25vw;
     width: 25vw;
+    background-size: cover;
+    background-position: center;
 }
 
 .product__info {
