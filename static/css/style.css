@@ -52,8 +52,8 @@ li {
     justify-content: center;
     align-items: center;
     bottom: 10px;
-    width: 100vw;
-    margin-bottom: 30px;
+    width: 300px;
+    margin: 0 auto 30px auto;
 }
 
 .checkout-popup__close,
@@ -63,8 +63,10 @@ li {
     justify-content: center;
     align-items: center;
     background-color: tomato;
-    padding: 15px;
-    height: 80px;
+    border: 1px solid white;
+    box-shadow: 0px 0px 8px -2px black;
+    padding: 10px;
+    height: 60px;
     margin: 0 5px;
 }
 
