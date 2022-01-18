@@ -35,6 +35,9 @@ $(".js-back").click(function () {
     window.location.href = document.referrer;
 });
 
+// Adds active class to first item in carousel image on load
+$(".pizza-carousel__item")[0].classList.add('pizza-carousel__item--active');
+
 // Carousel on index page on (refreshes every 5 sec)
 // CODE CREDIT: https://github.com/karlhadwen/carousel/blob/master/app.js
 let carousel = document.getElementsByClassName("pizza-carousel__item")

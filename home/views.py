@@ -2,10 +2,14 @@ from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from .forms import ContactForm
+from product.models import Item
 
 
 def index(request):
-    return render(request, 'home/index.html')
+    context = {
+        'items': Item.objects.all()
+    }
+    return render(request, 'home/index.html', context)
 
 
 def contact(request):

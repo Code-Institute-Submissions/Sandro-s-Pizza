@@ -253,7 +253,6 @@ li {
 
 .pizza-carousel__item {
     display: none;
-    width: 90vw;
     margin: 0 auto;
 }
 
@@ -262,7 +261,10 @@ li {
 }
 
 .pizza-carousel__img {
-    width: 100%;
+    background-size: cover;
+    width: 95vw;
+    height: 53vw;
+    margin: 0 auto;
     border-radius: 10px;
 }
 
