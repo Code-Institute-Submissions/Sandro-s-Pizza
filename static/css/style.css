@@ -234,6 +234,7 @@ li {
 }
 
 .subscribe__btn {
+    background-color: tomato;
     border-color: white;
 }
 
