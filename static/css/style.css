@@ -531,6 +531,7 @@ li {
 
 .comment-single {
     background-color: rgb(39, 0, 146, 0.2);
+    box-shadow: 1px 1px 3px -1px black;
     padding: 5px;
     border-radius: 5px;
     margin-bottom: 10px;
