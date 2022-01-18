@@ -415,6 +415,14 @@ li {
     color: rgb(39, 0, 146);;
 }
 
+.item__img {
+    width: 50vw;
+    height: 28vw;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-size: cover;
+}
+
 .item__quantity {
     display: flex;
 }
