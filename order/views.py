@@ -8,7 +8,6 @@ def order(request):
 def add_item(request, item_id):
     size = request.POST['size']
     quantity = int(request.POST['quantity'])
-    url = request.POST['url']
     bag = request.session.get('bag', {})
     if item_id in list(bag.keys()):
         if size in bag[item_id]['size'].keys():
@@ -18,7 +17,7 @@ def add_item(request, item_id):
     else:
         bag[item_id] = {'size': {size: quantity}}
     request.session['bag'] = bag
-    return redirect(url)
+    return redirect('menu')
 
 
 def plus_item(request, item_id, size):
