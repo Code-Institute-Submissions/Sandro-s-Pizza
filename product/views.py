@@ -14,11 +14,9 @@ def menu(request):
 
 
 def item(request, item_id):
-    for review in Review.objects.all():
-        print(review.user_profile.username)
     context = {
         'item': Item.objects.get(id=item_id),
-        'reviews': reversed(Review.objects.all()),
+        'reviews': Review.objects.all()[::-1],
         'show_bag': True
     }
     return render(request, 'product/item.html', context)
