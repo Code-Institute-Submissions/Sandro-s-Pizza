@@ -71,7 +71,8 @@ li {
 }
 
 .checkout-popup__close {
-    width: 80px;
+    height: 60px;
+    width: 75px;
     border-radius: 50%;
     font-size: 2rem;
 }
@@ -82,7 +83,7 @@ li {
 
 .checkout-popup__content {
     border-radius: 40px;
-    width: 70vw;
+    width: 300px;
 }
 
 .checkout-popup__content * {
