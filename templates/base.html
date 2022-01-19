@@ -24,11 +24,11 @@
             </div>
             <div class="navbar__menu">
                 <i class="navbar__close navbar__button fas fa-times"></i>
-                <form class="navbar__search">
-                    <input class="search__input" type="text" name="" id="" placeholder="Search">
-                    <div class="search__btn">
+                <form class="navbar__search" action="{% url 'menu' %}" method="get">
+                    <input class="search__input" type="text" name="q" id="q" placeholder="Search">
+                    <button class="search__btn">
                         <i class="fas fa-search"></i>
-                    </div>
+                    </button>
                 </form>
                 {% if user.is_authenticated %}
                     <p class="navbar__user">

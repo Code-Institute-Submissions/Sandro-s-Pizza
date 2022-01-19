@@ -1,13 +1,25 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Item, Review
 from .forms import ProductForm
 
 
 def menu(request):
+    items = Item.objects.all()
+    query = None
+
+    if 'q' in request.GET:
+        query = request.GET['q']
+        if not query:
+            messages.error(request, 'Not a valid search')
+            return redirect(reverse('menu'))
+        queries = Q(name__icontains=query) | Q(ingredients__icontains=query)
+        items = Item.objects.filter(queries)
+
     context = {
-        'items': Item.objects.all(),
+        'items': items,
         'show_bag': True
     }
     return render(request, 'product/menu.html', context)
