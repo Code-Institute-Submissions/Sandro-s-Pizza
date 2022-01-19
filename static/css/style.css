@@ -777,7 +777,7 @@ li {
 }
 
 .form-check-label {
-    display: block;
+    display: inline-block;
     text-align: center;
     margin: 25px auto;
 }
