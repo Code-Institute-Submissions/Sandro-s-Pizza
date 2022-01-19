@@ -782,6 +782,12 @@ li {
     margin: 25px auto;
 }
 
+.loading {
+    display: none;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
 .form-check-label a {
     font-weight: 900;
 }

@@ -50,7 +50,7 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
-    $('#loading-overlay').fadeToggle(100);
+    $('.loading').show();
 
     var saveInfo = Boolean($('#save-info').attr('checked'));
     // From using {% csrf_token %} in the form
@@ -94,7 +94,7 @@ form.addEventListener('submit', function(ev) {
                     </span>
                     <span>${result.error.message}</span>`;
                 $(errorDiv).html(html);
-                $('#loading-overlay').fadeToggle(100);
+                $('.loading').hide();
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
             } else {
