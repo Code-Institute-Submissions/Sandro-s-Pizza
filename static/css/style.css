@@ -238,6 +238,10 @@ li {
     width: 100%;
 }
 
+.bg-main__desktop {
+    display: none;
+}
+
 .subscribe {
     display: flex;
     flex-direction: column;
@@ -1210,5 +1214,27 @@ li {
     .navbar__link span {
         color: white !important;
     }
+
+    .bg-main {
+        display: none;
+    }
+
+    .bg-main__desktop {
+        display: block;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .subscribe {
+        top: -100px;
+    }
+
+    .order-now {
+        height: fit-content;
+        margin: auto;
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;  }
 }
 

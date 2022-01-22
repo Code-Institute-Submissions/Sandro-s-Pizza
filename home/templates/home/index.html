@@ -2,6 +2,10 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+    <div class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
+        <div class="order-now btn">ORDER NOW</div>
+    </div>
+
     {% if user.is_anonymous %}
         <div class="subscribe">
             <p class="subscribe__text">Join us today and get free delivery!</p>
