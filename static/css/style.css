@@ -268,11 +268,23 @@ li {
     padding: 50px 0;
 }
 
+.pizza-carousel__desktop {
+    display: none;
+}
+
+.pizza-carousel__title-desk {
+    display: none;
+}
+
 .pizza-carousel__title,
 .about__title {
     text-align: center;
     color: rgb(39, 0, 146);
     margin-bottom: 25px;
+}
+
+.about__title-desk {
+    display: none;
 }
 
 .pizza-carousel__item {
@@ -1201,12 +1213,12 @@ li {
     }
 
     .navbar__link a {
-        font-size: 0.95rem;
+        font-size: 1.1rem;
     }
 
     .navbar__user-desktop {
         color: white;
-        font-size: 0.95rem;
+        font-size: 1.1rem;
         font-family: 'Staatliches', cursive;
     }
 
@@ -1235,6 +1247,117 @@ li {
         height: fit-content;
         margin: auto;
         position: absolute;
-        top: 0; left: 0; bottom: 0; right: 0;  }
+        top: 0; left: 0; bottom: 0; right: 0;  
+    }
+
+    .pizza-carousel {
+        display: flex;
+        justify-content: center;
+        width: 50vw;
+        margin: 0 auto;
+    }
+
+    .pizza-carousel__img {
+        width: 35vw;
+        height: 20vw;
+    }
+
+    .pizza-carousel__title {
+        display: none;
+    }
+
+    .pizza-carousel__title-desk {
+        display: block;
+        text-align: center;
+        color: rgba(39, 0, 146);
+        font-size: 2rem;
+        margin-top: 50px;
+    }
+
+    .pizza-carousel__btn {
+        display: none;
+    }
+
+    .pizza-carousel__desktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 25px;
+    }
+
+    .pizza-carousel__description {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+    .pizza-carousel__message {
+        text-align: justify;
+        color: rgba(39, 0, 146);
+        font-size: 1.2rem;
+        width: 300px;
+    }
+
+    .pizza-carousel__btn-desk {
+        display: block;
+    }
+
+    .hr-index {
+        display: none;
+    }
+
+    .about {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(39, 0, 146);
+        padding: 25px 0;
+    }
+
+    .about__title,
+    .about__text {
+        color: white;
+    }
+
+    .about__text {
+        margin: 0 50px;
+        font-size: 1.2rem;
+    }
+
+    .about__img {
+        width: 300px;
+        height: 300px;
+        margin: 0 50px;
+    }
+
+    .about__title {
+        display: none;
+    }
+
+    .about__title-desk {
+        display: block;
+        background-color: rgba(39, 0, 146);
+        color: white;
+        text-align: center;
+        padding-top: 50px;
+        font-size: 2rem;
+    }
+
+    .reviews-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .review {
+        margin: 50px 20px;
+    }
+
+    .review__title {
+        font-size: 1.5rem;
+    }
+
+    .review__text {
+        font-size: 1.2rem;
+    }
 }
 

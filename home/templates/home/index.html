@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    <a href="{% url 'menu' %}" class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
-        <div class="order-now btn">ORDER NOW</div>
-    </a>
+    <div  class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
+        <a href="{% url 'menu' %}" class="order-now btn">ORDER NOW</a>
+    </div>
 
     {% if user.is_anonymous %}
         <div class="subscribe">
@@ -13,7 +13,8 @@
         </div>
     {% endif %}
 
-    <div class="pizza-carousel">
+    <h2 class="pizza-carousel__title-desk" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>Most popular</h2>
+    <div class="pizza-carousel" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>
         <h2 class="pizza-carousel__title">Most popular</h2>
         {% for item in items %}
             <div class="pizza-carousel__item animate__animated animate__fadeIn">
@@ -21,10 +22,15 @@
                 <p class="pizza-carousel__description">{{ item.name }} | €<span>{{ item.price }}</span></p>
             </div>
         {% endfor %}
-
+        <div class="pizza-carousel__desktop">
+            <p class="pizza-carousel__message">Italian style pizza made with love and passion is just few clicks away from being deivered straight to your door. Order now and see for yourself why Sandro's Pizza is one of Dublin's favorites!</p>
+            <a href="{% url 'menu' %}" class="pizza-carousel__btn-desk btn">VIEW MENU</a>
+        </div>
         <a href="{% url 'menu' %}" class="pizza-carousel__btn btn">ORDER NOW</a>
     </div>
     <hr class="hr-index">
+
+    <h2 class="about__title-desk">Sandro's Story</h2>
     <div class="about">
         <h2 class="about__title">Sandro's Story</h2>
         <img class="about__img" src="{% static 'images/sandro.webp' %}" alt="owner photo">
@@ -35,26 +41,29 @@
         </p>
     </div>
     <hr class="hr-index">
-    <div class="review">
-        <div class="review__quotes">,,</div>
-        <h3 class="review__title">Fantastic!</h3>
-        <p class="review__text">
-            This is my absolute favorite pizza place in Dublin. Every pizza is fantastic and no matter what I order I am always delighted! Can’t wait to order again and wouldn’t hesitate to recommend to anyone looking for best pizza!
-        </p>
-    </div>
-    <div class="review">
-        <div class="review__quotes">,,</div>
-        <h3 class="review__title">Great pizza!</h3>
-        <p class="review__text">
-            Delicious high quality pizzas selection. We tried all their entrees, and everything was de-li-cious. Highly recommended.
-        </p>
-    </div>
-    <div class="review">
-        <div class="review__quotes">,,</div>
-        <h3 class="review__title">Love it!</h3>
-        <p class="review__text">
-            Legitimately the best pizza restaurant around Dublin. Doesn’t matter what I get I end up liking it. My partner and I have been eating here for a few years now. They make probably the best Margherita I’ve had.
-        </p>
+    <div class="reviews-container">
+        <div class="review">
+            <div class="review__quotes">,,</div>
+            <h3 class="review__title">Fantastic!</h3>
+            <p class="review__text">
+                This is my absolute favorite pizza place in Dublin. Every pizza is fantastic and no matter what I order I am always delighted! Can’t wait to order again and wouldn’t hesitate to recommend to anyone looking for best pizza!
+            </p>
+        </div>
+        <div class="review">
+            <div class="review__quotes">,,</div>
+            <h3 class="review__title">Great pizza!</h3>
+            <p class="review__text">
+                Delicious high quality pizzas selection. We tried all their entrees, and everything was de-li-cious. Highly recommended.
+            </p>
+        </div>
+        <div class="review">
+            <div class="review__quotes">,,</div>
+            <h3 class="review__title">Love it!</h3>
+            <p class="review__text">
+                Legitimately the best pizza restaurant around Dublin. Doesn’t matter what I get I end up liking it. My partner and I have been eating here for a few years now. They make probably the best Margherita I’ve had.
+            </p>
+        </div>
+    
     </div>
 
 {% endblock content %}
