@@ -1,7 +1,4 @@
-// Adds event listener to nav toggle button on mobile
-$(".navbar__button").click(function () {
-    $(".navbar__menu").toggle("slide");
-})
+
 
 // Updates item quantity form field on item page
 $('.item__plus').click(function(){
@@ -105,3 +102,9 @@ $(".flash__close").click(function(){
 
 // Adds active class to first item in carousel image on load
 $(".pizza-carousel__item")[0].classList.add('pizza-carousel__item--active');
+
+// Adds event listener to nav toggle button on mobile
+$(".navbar__button").click(function () {
+    console.log("clicked");
+    $(".navbar__mobile-menu").toggle("slide");
+})
