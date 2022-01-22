@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    <div class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
+    <a href="{% url 'menu' %}" class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
         <div class="order-now btn">ORDER NOW</div>
-    </div>
+    </a>
 
     {% if user.is_anonymous %}
         <div class="subscribe">
