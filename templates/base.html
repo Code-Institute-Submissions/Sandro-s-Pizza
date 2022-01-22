@@ -15,14 +15,63 @@
 <body>
 
     <header class="navbar">
-        <nav class="navbar__mobile">
+        <nav class="navbar__container">
             <a href="{% url 'index' %}">
-                <img class="navbar__logo" src="{% static 'images/logo.webp' %}" alt="Sandros pizza logo">
+                <img class="navbar__logo" src="{% static 'images/logo_bw.webp' %}" alt="Sandros pizza logo">
             </a>
             <div class="navbar__button">
                 <i class="fas fa-bars"></i>
             </div>
-            <div class="navbar__menu">
+            <div class="navbar__desktop-menu">
+                <form class="navbar__search" action="{% url 'menu' %}" method="get" style="margin-right: 20px;">
+                    <input class="search__input" type="text" name="q" id="q" placeholder="Search">
+                    <button class="search__btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+
+                <ul class="navbar__links">
+                    {% if user.is_authenticated %}
+                    <li class="navbar__user-desktop">
+                        Welcome, {{ request.user }}!
+                    </li>
+                    {% endif %}
+                    {% if user.is_anonymous %}
+                    <li class="navbar__link">
+                        <a href="{% url 'account_signup' %}">Join us</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="{% url 'account_login' %}">Login</a>
+                    </li>
+                    {% endif %}
+                    <li class="navbar__link">
+                        <a href="{% url 'menu' %}">Menu</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="{% url 'contact' %}">Contact us</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="navbar__link">
+                        <a href="{% url 'profile' %}">Edit profile</a>
+                    </li>
+                    <li class="navbar__link">
+                        <a href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="navbar__link" style="margin-left: 20px;">
+                        <a href="{% url 'order' %}">
+                            <i class="fas fa-shopping-basket"></i>
+                            {% if bag_items %}
+                            <span>€{{ grand_total|floatformat:2 }}</span>
+                            {% else %}
+                            <span>€0.00</span>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>                
+            </div>
+            <div class="navbar__mobile-menu">
                 <i class="navbar__close navbar__button fas fa-times"></i>
                 <form class="navbar__search" action="{% url 'menu' %}" method="get">
                     <input class="search__input" type="text" name="q" id="q" placeholder="Search">

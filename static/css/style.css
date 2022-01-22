@@ -97,7 +97,11 @@ li {
 
 /* Navbar */
 
-.navbar__mobile {
+.navbar__desktop-menu {
+    display: none;
+}
+
+.navbar__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,7 +127,7 @@ li {
     color: white;
 }
 
-.navbar__menu {
+.navbar__mobile-menu {
     display: none;
     position: absolute;
     top: 0;
@@ -1136,5 +1140,75 @@ li {
 
 @media only screen and (min-width: 992px) and (orientation: landscape) {
     
+    .main-container {
+        min-height: calc(100vh - 177px - 60px);
+        top: 60px;
+        margin-bottom: 60px;
+    }
+
+    .navbar__container {
+        height: 60px;
+    }
+    
+    .navbar__user {
+        display: none;
+    }
+
+    .navbar__button {
+        display: none;
+    }    
+
+    .navbar__desktop-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar__desktop-menu hr {
+        display: none;
+    }
+
+    .navbar__search {
+        height: fit-content;
+        width: 300px;
+        margin: 0;
+    }
+
+    .search__input {
+        height: auto;
+        width: 85%;
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    .search__btn i {
+        height: auto;
+        font-size: 1rem;
+        padding: 0px;
+    }   
+
+    .navbar__links {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar__link {
+        margin-top: 0;
+        margin-left: 16px;
+    }
+
+    .navbar__link a {
+        font-size: 0.95rem;
+    }
+
+    .navbar__user-desktop {
+        color: white;
+        font-size: 0.95rem;
+        font-family: 'Staatliches', cursive;
+    }
+
+    .navbar__link i,
+    .navbar__link span {
+        color: white !important;
+    }
 }
 
