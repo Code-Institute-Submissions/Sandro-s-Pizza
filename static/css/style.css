@@ -1483,5 +1483,23 @@ li {
     .checkout-form {
         width: 50%;
     }
+
+    .profile-container {
+        display: flex;
+    }
+
+    .update-profile,
+    .orderhistory {
+        width: 50%;
+        padding: 0 50px;
+    }
+
+    .orderhistory__item {
+        width: 100%;
+    }
+
+    .update-profile-form {
+        width: 100%;
+    }
 }
 

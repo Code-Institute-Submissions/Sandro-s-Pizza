@@ -2,37 +2,35 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
+
+    <div class="profile-container">
+        <div class="update-profile">
+            <h2 class="update-profile__title">Update profile</h2>
+            <form class="update-profile-form" action="{% url 'profile' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn--update-profile" type="submit">Update</button>
+            </form>
         </div>
-    {% endif %}
-
-    <div class="update-profile">
-        <h2 class="update-profile__title">Update profile</h2>
-        <form class="update-profile-form" action="{% url 'profile' %}" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn--update-profile" type="submit">Update</button>
-        </form>
+    
+        <div class="orderhistory">
+            <h2 class="orderhistory__title">Order History</h2>
+            {% if orders|length == 0  %}
+                <p class="orderhistory__text">Your order history is empty.</p>
+            {% else %}
+                {% for order in orders %}
+                    <div class="orderhistory__item">
+                        <p class="orderhistory__date">{{ order.date }}</p>
+                        <p class="orderhistory__number">Order number: #{{ order.order_number|truncatechars:10 }}</p>
+                        <p class="orderhistory__total">TOTAL: €{{ order.order_total }}</p>
+                        <a class="orderhistory__btn" href="{% url 'saved_order' order.order_number %}">View Order</a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    
     </div>
 
-    <div class="orderhistory">
-        <h2 class="orderhistory__title">Order History</h2>
-        {% if orders|length == 0  %}
-            <p class="orderhistory__text">Your order history is empty.</p>
-        {% else %}
-            {% for order in orders %}
-                <div class="orderhistory__item">
-                    <p class="orderhistory__date">{{ order.date }}</p>
-                    <p class="orderhistory__number">Order number: #{{ order.order_number|truncatechars:10 }}</p>
-                    <p class="orderhistory__total">TOTAL: €{{ order.order_total }}</p>
-                    <a class="orderhistory__btn" href="{% url 'saved_order' order.order_number %}">View Order</a>
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
 
 
 {% endblock content %}
