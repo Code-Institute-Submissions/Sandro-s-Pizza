@@ -3,42 +3,41 @@
 
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
 
-    <div class="order">
-        <h2 class="order__title">Manage your order</h2>
-        {% if bag_items|length == 0  %}
-            <p class="order__text">Your order is empty.</p>
-            <a class="order__back" href="{% url 'index' %}">Back to index page</a>
-        {% else %}
-            {% for item in bag_items %}
-            <div class="orderitem">
-                <h3 class="orderitem__name">{{ item.product }}</h3>
-                <div class="orderitem__info">
-                    <span>{{ item.size }}</span>
-                    <div>
-                        <a href="{% url 'minus_item' item.product.id item.size %}" class="orderitem__minus">-</a>
-                        <span class="orderitem__quantity">{{ item.quantity }}</span>
-                        <a href="{% url 'plus_item' item.product.id item.size %}" class="orderitem__plus">+</a>
+    <div class="order-container">
+        <img class="half-img" src="{% static 'images/bg-main-mobile.webp' %}" alt="">
+
+        <div class="order">
+            <h2 class="order__title">Manage your order</h2>
+            {% if bag_items|length == 0  %}
+                <p class="order__text">Your order is empty.</p>
+                <a class="order__back" href="{% url 'index' %}">Back to index page</a>
+            {% else %}
+                {% for item in bag_items %}
+                <div class="orderitem">
+                    <h3 class="orderitem__name">{{ item.product }}</h3>
+                    <div class="orderitem__info">
+                        <span>{{ item.size }}</span>
+                        <div>
+                            <a href="{% url 'minus_item' item.product.id item.size %}" class="orderitem__minus">-</a>
+                            <span class="orderitem__quantity">{{ item.quantity }}</span>
+                            <a href="{% url 'plus_item' item.product.id item.size %}" class="orderitem__plus">+</a>
+                        </div>
+                        <span>€{{ item.total }}</span>
                     </div>
-                    <span>€{{ item.total }}</span>
+                    <a href="{% url 'delete_item' item.product.id item.size %}" class="orderitem__remove">
+                        <i class="far fa-trash-alt"></i>
+                    </a>
                 </div>
-                <a href="{% url 'delete_item' item.product.id item.size %}" class="orderitem__remove">
-                    <i class="far fa-trash-alt"></i>
-                </a>
-            </div>
-            {% endfor %}
-            <p class="delivery-fee">(Delivery fee: €{{ delivery_fee|floatformat:2 }})</p>
-            <hr class="hr--order">
-            <p class="order__total">
-                TOTAL: €<span>{{ grand_total }}</span>
-            </p>
-            <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
-        {% endif %}
+                {% endfor %}
+                <p class="delivery-fee">(Delivery fee: €{{ delivery_fee|floatformat:2 }})</p>
+                <hr class="hr--order">
+                <p class="order__total">
+                    TOTAL: €<span>{{ grand_total }}</span>
+                </p>
+                <a href="{% url 'checkout' %}" class="btn btn--order">Proceed to payment</a>
+            {% endif %}
+        </div>
+    
     </div>
 {% endblock content %}

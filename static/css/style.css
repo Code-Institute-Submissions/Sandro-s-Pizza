@@ -1448,5 +1448,26 @@ li {
         margin-top: 5px;
     }
 
+    .order-container {
+        display: flex;
+    }
+
+    .order {
+        height: calc(100vh - 60px);
+        width: 50%;
+        margin: 0;
+        overflow: scroll;
+    }
+
+    .order__title {
+        margin: 40px auto;
+    }
+
+    .orderitem,
+    .delivery-fee,
+    .hr--order {
+        width: 95%;
+    }
+
 }
 
