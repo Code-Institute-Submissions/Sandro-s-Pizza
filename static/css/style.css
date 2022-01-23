@@ -1469,5 +1469,19 @@ li {
         width: 95%;
     }
 
+    .checkout-container {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .checkout,
+    .checkout-form {
+        width: 50%;
+        padding: 0 50px;
+    }
+
+    .checkout-form {
+        width: 50%;
+    }
 }
 
