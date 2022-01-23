@@ -26,9 +26,10 @@ def menu(request):
 
 
 def item(request, item_id):
+    pizza_item = Item.objects.get(id=item_id)
     context = {
-        'item': Item.objects.get(id=item_id),
-        'reviews': Review.objects.all()[::-1],
+        'item': pizza_item,
+        'reviews': Review.objects.filter(item=pizza_item)[::-1],
         'show_bag': True
     }
     return render(request, 'product/item.html', context)

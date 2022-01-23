@@ -1418,10 +1418,15 @@ li {
     }
 
     .comment {
+        width: 100%;
         height: calc(100vh - 60px);
         margin-left: 10px;
         margin-top: 0;
         overflow: scroll;
+    }
+
+    .comment__title {
+        margin-bottom: 0;
     }
 
     .comment-single {
