@@ -7,6 +7,13 @@
     <div class="menu-container">
         <img class="half-img" src="{% static 'images/bg-main-mobile.webp' %}" alt="">
 
+        {% if user.is_anonymous %}
+        <div class="subscribe subscribe-desk">
+            <p class="subscribe__text">Join us today and get free delivery!</p>
+            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
+        </div>
+        {% endif %}
+
         <div class="menu">
             <h2 class="menu__title">Choose your pizza</h2>
             {% if request.user.is_superuser %}
