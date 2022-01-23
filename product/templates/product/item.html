@@ -2,38 +2,35 @@
 {% load static %}
 {% block content %}
     <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
     
     <div class="item">
-        <h2 class="item__title">{{ item.name }}</h2>
-        <p class="item__description">{{ item.ingredients }}</p>
-        <div class="item__img" style="background-image: url({{item.image.url}});"></div>
-        <form action="{% url 'add_item' item.id %}" method="post" class="item__form">
-            {% csrf_token %}
-            <select id="item-size" name="size">
-                <option value="small">Small</option>
-                <option value="normal" selected>Normal</option>
-                <option value="large">Large</option>
-            </select>
+        <div class="item-container">
+            <h2 class="item__title">{{ item.name }}</h2>
+            <p class="item__description">{{ item.ingredients }}</p>
+            <div class="item__img" style="background-image: url({{item.image.url}});"></div>
+            <form action="{% url 'add_item' item.id %}" method="post" class="item__form">
+                {% csrf_token %}
+                <select id="item-size" name="size">
+                    <option value="small">Small</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="large">Large</option>
+                </select>
+                
+                <div class="item__quantity">
+                    <div class="item__minus">-</div>
+                    <input type="number" name="quantity" id="item-quantity" min="1" value="1" >
+                    <div class="item__plus">+</div>
+                </div>
+    
             
-            <div class="item__quantity">
-                <div class="item__minus">-</div>
-                <input type="number" name="quantity" id="item-quantity" min="1" value="1" >
-                <div class="item__plus">+</div>
-            </div>
-
-            <div class="center">
                 <button class="btn btn--item" type="submit">
                     Add to order for €<span id="item-price">{{ item.price }}</span>
                 </button>
-            </div>
-            <input type="hidden" name="url" value="{{ request.path }}">
-        </form>
+                
+                <input type="hidden" name="url" value="{{ request.path }}">
+            </form>
+        </div>
+
 
         <hr class="hr-index">
 

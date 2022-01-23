@@ -509,6 +509,7 @@ li {
 
 
 .btn--item {
+    margin: 0 auto;;
     margin-top: 50px;
     width: 300px;
 }
@@ -1405,6 +1406,41 @@ li {
         top: 0;
         width: calc(100vh - 60px);
         z-index: 1;
+    }
+
+    .item {
+        display: flex;
+    }
+
+    .item-container {
+        height: calc(100vh - 60px);
+        margin-right: 10px;
+    }
+
+    .comment {
+        height: calc(100vh - 60px);
+        margin-left: 10px;
+        margin-top: 0;
+        overflow: scroll;
+    }
+
+    .comment-single {
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .btn--item {
+        position: absolute;
+        margin: 0;
+        right: 0;
+    }
+
+    .item__form {
+        height: auto;
+    }
+
+    .item__quantity {
+        margin-top: 5px;
     }
 
 }
