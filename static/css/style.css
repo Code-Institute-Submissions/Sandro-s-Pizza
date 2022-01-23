@@ -34,6 +34,10 @@ li {
     margin-bottom: 80px;
 }
 
+.half-img {
+    display: none;
+}
+
 .btn {
     display: block;
     color: white !important;
@@ -1359,5 +1363,42 @@ li {
     .review__text {
         font-size: 1.2rem;
     }
+
+    .half-img {
+        display: block;
+        height: calc(100vh - 60px);
+        width: calc(100vh - 60px);
+    }
+
+    .menu-container {
+        display: flex;
+    }
+
+    .menu {
+        height: calc(100vh - 60px);
+        width: calc(100vw - (100vh - 60px));
+        overflow: scroll;
+    }
+
+    .product {
+        width: 95%;
+        margin: 5px auto;
+    }
+
+    .product__img {
+        width: 25%;
+        height: auto;
+    }
+
+    .product__info {
+        width: 75%;
+    }
+
+    .product__price {
+        position: absolute;
+        top: 0px;
+        right: 5px;
+    }
+
 }
 
