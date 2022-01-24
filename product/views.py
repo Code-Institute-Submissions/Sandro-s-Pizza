@@ -50,6 +50,10 @@ def add_review(request, item_id):
 @login_required()
 def delete_review(request, item_id, review_id):
     review = Review.objects.get(id=review_id)
+    # Check if user is allowed to see the order
+    if not (str(review.user_profile) == request.user.username or request.user.is_superuser):
+        messages.error(request, 'Permission denied.')
+        return redirect(reverse('index'))
     review.delete()
     messages.add_message(request, messages.INFO, 'Review deleted.')
     return redirect('item', item_id)
@@ -58,6 +62,10 @@ def delete_review(request, item_id, review_id):
 @login_required()
 def edit_review(request, review_id):
     review = Review.objects.get(id=review_id)
+    # Check if user is allowed to see the order
+    if not (str(review.user_profile) == request.user.username or request.user.is_superuser):
+        messages.error(request, 'Permission denied.')
+        return redirect(reverse('index'))
     if request.method == 'POST':
         print("PRINT: ", review)
         title = request.POST['review__title']
@@ -79,7 +87,7 @@ def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
         messages.error(request, 'Permission denied.')
-        return redirect(reverse('home'))
+        return redirect(reverse('index'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)

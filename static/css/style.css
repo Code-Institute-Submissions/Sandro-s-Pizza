@@ -1519,5 +1519,13 @@ li {
     .contact__form {
         width: 50vw;
     }
+
+    .allauth__title {
+        font-size: 2rem;
+    }
+
+    .allauth__text {
+        width: 50vw;
+    }
 }
 
