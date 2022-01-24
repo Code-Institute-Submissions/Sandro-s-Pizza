@@ -1506,5 +1506,11 @@ li {
     .allauth__form {
         width: 40vw;
     }
+
+    .flash {
+        width: 400px;
+        top: 60px;
+        left: auto;
+        right: 10px;
 }
 
