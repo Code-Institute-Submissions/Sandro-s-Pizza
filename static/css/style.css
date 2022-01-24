@@ -1514,5 +1514,10 @@ li {
         top: 60px;
         left: auto;
         right: 10px;
+    }
+    
+    .contact__form {
+        width: 50vw;
+    }
 }
 
