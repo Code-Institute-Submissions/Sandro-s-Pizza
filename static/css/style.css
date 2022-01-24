@@ -50,6 +50,18 @@ li {
     text-align: center;
 }
 
+.error-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 236px);
+}
+
+.error-message * {
+    color: rgb(39, 0, 146);
+}
+
 .checkout-popup {
     position: sticky;
     display: flex;

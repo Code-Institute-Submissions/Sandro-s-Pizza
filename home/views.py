@@ -37,3 +37,11 @@ def contact(request):
 
 def message_sent(request):
     return render(request, "home/message_sent.html")
+
+
+def handler_500(request):
+    return render(request, "home/404.html")
+
+
+def handler_404(request, exception):
+    return render(request, "home/404.html")
