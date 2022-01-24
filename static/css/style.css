@@ -1438,6 +1438,8 @@ li {
         position: absolute;
         margin: 0;
         right: 0;
+        font-size: 1.3rem;
+        width: fit-content;
     }
 
     .item__form {
