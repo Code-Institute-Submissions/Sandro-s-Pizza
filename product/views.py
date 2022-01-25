@@ -7,9 +7,10 @@ from .forms import ProductForm
 
 
 def menu(request):
+    """Renders menu page"""
     items = Item.objects.all()
     query = None
-
+    # Returns search results
     if 'q' in request.GET:
         query = request.GET['q']
         if not query:
@@ -26,6 +27,7 @@ def menu(request):
 
 
 def item(request, item_id):
+    """Renders single item page"""
     pizza_item = Item.objects.get(id=item_id)
     context = {
         'item': pizza_item,
@@ -37,6 +39,7 @@ def item(request, item_id):
 
 @login_required
 def add_review(request, item_id):
+    """Adds new item review to database"""
     title = request.POST['review__title']
     content = request.POST['review__text']
     current_user = request.user
@@ -49,6 +52,7 @@ def add_review(request, item_id):
 
 @login_required()
 def delete_review(request, item_id, review_id):
+    """Deletes item review from database"""
     review = Review.objects.get(id=review_id)
     # Check if user is allowed to see the order
     if not (str(review.user_profile) == request.user.username or request.user.is_superuser):
@@ -61,13 +65,13 @@ def delete_review(request, item_id, review_id):
 
 @login_required()
 def edit_review(request, review_id):
+    """Modifies item review and changes it in database"""
     review = Review.objects.get(id=review_id)
     # Check if user is allowed to see the order
     if not (str(review.user_profile) == request.user.username or request.user.is_superuser):
         messages.error(request, 'Permission denied.')
         return redirect(reverse('index'))
     if request.method == 'POST':
-        print("PRINT: ", review)
         title = request.POST['review__title']
         content = request.POST['review__text']
         review.title = title
@@ -100,7 +104,8 @@ def add_product(request):
             messages.success(request, 'Successfully added product!')
             return redirect(reverse('menu'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the \
+                form is valid.')
     else:
         form = ProductForm()
     context = {
@@ -119,7 +124,6 @@ def edit_product(request, item_id):
 
     product = get_object_or_404(Item, pk=item_id)
     if request.method == 'POST':
-        
         form = ProductForm(request.POST, request.FILES, instance=product)
         if request.POST.get('image-clear') == 'on':
             messages.error(request, 'Edit FAILED: Image field is mandatory!')
@@ -130,15 +134,14 @@ def edit_product(request, item_id):
             messages.success(request, 'Successfully edited product details!')
             return redirect(reverse('menu'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product. Please ensure the \
+                form is valid.')
     else:
         form = ProductForm(instance=product)
-    
     context = {
         'form': form,
         'item': product,
     }
-
     return render(request, 'product/edit_product.html', context)
 
 
@@ -148,7 +151,6 @@ def delete_product(request, item_id):
     if not request.user.is_superuser:
         messages.error(request, 'Permission denied.')
         return redirect(reverse('index'))
-
     item = get_object_or_404(Item, pk=item_id)
     item.delete()
     messages.success(request, 'Item deleted!')

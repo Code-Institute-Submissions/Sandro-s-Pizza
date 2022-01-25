@@ -4,11 +4,11 @@ from .widgets import CustomClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
-    
+    """Form for Item model"""
     class Meta:
+        """Defines model, fileds and widgets for form"""
         model = Item
         fields = '__all__'
-
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Product name'}),
             'ingredients': forms.TextInput(
@@ -16,5 +16,5 @@ class ProductForm(forms.ModelForm):
             'price': forms.TextInput(
                 attrs={'placeholder': 'price'}),
         }
-    
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='Image', required=False, widget=CustomClearableFileInput)
