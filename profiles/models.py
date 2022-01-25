@@ -6,8 +6,7 @@ from django.dispatch import receiver
 
 class UserProfile(models.Model):
     """
-    A user profile model for maintaining default
-    delivery information and order history
+    A user profile model (extends default user model)
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(
@@ -18,8 +17,9 @@ class UserProfile(models.Model):
         max_length=80, null=True, blank=True)
     default_street_address2 = models.CharField(
         max_length=80, null=True, blank=True)
-    
+
     def __str__(self):
+        """Overrides default string method"""
         return self.user.username
 
     
@@ -30,5 +30,5 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         UserProfile.objects.create(user=instance)
-    # Existing users: just save the profile
+    # Save the profile for existing users
     instance.userprofile.save()

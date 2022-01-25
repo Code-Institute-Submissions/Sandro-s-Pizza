@@ -10,7 +10,6 @@ from .forms import UserProfileForm
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
-
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
@@ -30,6 +29,7 @@ def profile(request):
 
 @login_required()
 def saved_order(request, order_number):
+    """Renders specific single order in order history"""
     order = get_object_or_404(Order, order_number=order_number)
     # Check if user is allowed to see the order
     if not (str(order.user_profile) == request.user.username):
