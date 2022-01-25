@@ -1,73 +1,82 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    <div  class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
-        <a href="{% url 'menu' %}" class="order-now btn">ORDER NOW</a>
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  <div class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
+    <a href="{% url 'menu' %}" class="order-now btn">ORDER NOW</a>
+  </div>
+  <!-- Subscription banner -->
+  {% if user.is_anonymous %}
+    <div class="subscribe">
+      <p class="subscribe__text">Join us today and get free delivery!</p>
+      <a href="{% url 'account_signup' %}" class="subscribe__btn btn">
+        JOIN NOW
+      </a>
     </div>
+  {% endif %}
 
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
-
-    <h2 class="pizza-carousel__title-desk" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>Most popular</h2>
-    <div class="pizza-carousel" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>
-        <h2 class="pizza-carousel__title">Most popular</h2>
-        {% for item in items %}
-            <div class="pizza-carousel__item animate__animated animate__fadeIn">
-                <div class="pizza-carousel__img" style="background-image: url(media/{{item.image}});"></div>
-                <p class="pizza-carousel__description">{{ item.name }} | €<span>{{ item.price }}</span></p>
-            </div>
-        {% endfor %}
-        <div class="pizza-carousel__desktop">
-            <p class="pizza-carousel__message">Italian style pizza made with love and passion is just few clicks away from being deivered straight to your door. Order now and see for yourself why Sandro's Pizza is one of Dublin's favorites!</p>
-            <a href="{% url 'menu' %}" class="pizza-carousel__btn-desk btn">VIEW MENU</a>
-        </div>
-        <a href="{% url 'menu' %}" class="pizza-carousel__btn btn">ORDER NOW</a>
-    </div>
-    <hr class="hr-index">
-
-    <h2 class="about__title-desk">Sandro's Story</h2>
-    <div class="about">
-        <h2 class="about__title">Sandro's Story</h2>
-        <img class="about__img" src="{% static 'images/sandro.webp' %}" alt="owner photo">
-        <p class="about__text">
-            In 2015, Sandro Bencinic visited Naples during his holidays and fell in love with Pizza Napoletana, the most recognized pizza in the world. As a passionate foodie and proven entrepreneur, Sandro decided to master his skills in making this truly unique dish. He was thought the secrets of making the best pizza in the world from best in the business - Institute of pizza in Naples.
-            
-            In 2016, Sandro followed his dream and changed career to become a pizza chef. He built a mobile wood-fired pizza oven-from the bed of the trailer, to the finishing tiles-by hand in the backyard of his home, while simultaneously developing his recipe for a naturally leavened dough. In the summer of 2017 Sandro opened his first restaurant in Dublin city center which was immediately recognized by the customers. Being a master himself now, and by using only the best and freshest ingredients, his pizza became one of the most popular in town.
+  <!-- Photo carousel -->
+  <h2 class="pizza-carousel__title-desk" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>Most popular</h2>
+  <div class="pizza-carousel" {% if user.is_anonymous %} style="top: -50px;" {% endif %}>
+    <h2 class="pizza-carousel__title">Most popular</h2>
+    {% for item in items %}
+      <div class="pizza-carousel__item animate__animated animate__fadeIn">
+        <div class="pizza-carousel__img" style="background-image: url(media/{{item.image}});"></div>
+        <p class="pizza-carousel__description">
+          {{ item.name }} | €<span>{{ item.price }}</span>
         </p>
+      </div>
+    {% endfor %}
+    <div class="pizza-carousel__desktop">
+      <p class="pizza-carousel__message">Italian style pizza made with love and passion is just few clicks away from being deivered straight to your door. Order now and see for yourself why Sandro's Pizza is one of Dublin's favorites!
+      </p>
+      <a href="{% url 'menu' %}" class="pizza-carousel__btn-desk btn">
+        VIEW MENU
+      </a>
     </div>
-    <hr class="hr-index">
-    <div class="reviews-container">
-        <div class="review">
-            <div class="review__quotes">,,</div>
-            <h3 class="review__title">Fantastic!</h3>
-            <p class="review__text">
-                This is my absolute favorite pizza place in Dublin. Every pizza is fantastic and no matter what I order I am always delighted! Can’t wait to order again and wouldn’t hesitate to recommend to anyone looking for best pizza!
-            </p>
-        </div>
-        <div class="review">
-            <div class="review__quotes">,,</div>
-            <h3 class="review__title">Great pizza!</h3>
-            <p class="review__text">
-                Delicious high quality pizzas selection. We tried all their entrees, and everything was de-li-cious. Highly recommended.
-            </p>
-        </div>
-        <div class="review">
-            <div class="review__quotes">,,</div>
-            <h3 class="review__title">Love it!</h3>
-            <p class="review__text">
-                Legitimately the best pizza restaurant around Dublin. Doesn’t matter what I get I end up liking it. My partner and I have been eating here for a few years now. They make probably the best Margherita I’ve had.
-            </p>
-        </div>
-    
-    </div>
+    <a href="{% url 'menu' %}" class="pizza-carousel__btn btn">ORDER NOW</a>
+  </div>
+  <hr class="hr-index">
 
+  <!-- About section -->
+  <h2 class="about__title-desk">Sandro's Story</h2>
+  <div class="about">
+    <h2 class="about__title">Sandro's Story</h2>
+    <img class="about__img" src="{% static 'images/sandro.webp' %}" alt="owner photo">
+    <p class="about__text">
+      In 2015, Sandro Bencinic visited Naples during his holidays and fell in love with Pizza Napoletana, the most recognized pizza in the world. As a passionate foodie and proven entrepreneur, Sandro decided to master his skills in making this truly unique dish. He was thought the secrets of making the best pizza in the world from best in the business - Institute of pizza in Naples.
+
+      In 2016, Sandro followed his dream and changed career to become a pizza chef. He built a mobile wood-fired pizza oven-from the bed of the trailer, to the finishing tiles-by hand in the backyard of his home, while simultaneously developing his recipe for a naturally leavened dough. In the summer of 2017 Sandro opened his first restaurant in Dublin city center which was immediately recognized by the customers. Being a master himself now, and by using only the best and freshest ingredients, his pizza became one of the most popular in town.
+    </p>
+  </div>
+  <hr class="hr-index">
+
+  <!-- Reviews -->
+  <div class="reviews-container">
+    <div class="review">
+      <div class="review__quotes">,,</div>
+      <h3 class="review__title">Fantastic!</h3>
+      <p class="review__text">
+        This is my absolute favorite pizza place in Dublin. Every pizza is fantastic and no matter what I order I am always delighted! Can’t wait to order again and wouldn’t hesitate to recommend to anyone looking for best pizza!
+      </p>
+    </div>
+    <div class="review">
+      <div class="review__quotes">,,</div>
+      <h3 class="review__title">Great pizza!</h3>
+      <p class="review__text">
+        Delicious high quality pizzas selection. We tried all their entrees, and everything was de-li-cious. Highly recommended.
+      </p>
+    </div>
+    <div class="review">
+      <div class="review__quotes">,,</div>
+      <h3 class="review__title">Love it!</h3>
+      <p class="review__text">
+        Legitimately the best pizza restaurant around Dublin. Doesn’t matter what I get I end up liking it. My partner and I have been eating here for a few years now. They make probably the best Margherita I’ve had.
+      </p>
+    </div>
+  </div>
 {% endblock content %}
 
 {% block postloadjs%}
-<script src="{% static 'js/carousel.js' %}"></script>
+  <script src="{% static 'js/carousel.js' %}"></script>
 {% endblock postloadjs %}

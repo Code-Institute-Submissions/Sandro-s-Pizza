@@ -1,29 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
-    
-
-    <div class="comment">
-        <h2 class="comment__title">Edit review</h2>
-        <form class="comment__new" style="display: block;" action="{% url 'edit_review' review.id %}" method="post">
-            {% csrf_token %}
-            <input type="text" id="review__title" name="review__title" value="{{ review.title }}">
-            <textarea name="review__text" id="review__text" cols="30" rows="10" >{{ review.content }}</textarea>
-            <div class="center">
-                <button class="btn btn--comment" type="submit">Post</button>
-            </div>
-        </form>
-
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  {% if user.is_anonymous %}
+    <div class="subscribe">
+      <p class="subscribe__text">Join us today and get free delivery!</p>
+      <a href="{% url 'account_signup' %}" class="subscribe__btn btn">
+        JOIN NOW
+      </a>
     </div>
+  {% endif %}
 
-    
-
-
+  <div class="comment">
+    <h2 class="comment__title">Edit review</h2>
+    <form class="comment__new" style="display: block;" action="{% url 'edit_review' review.id %}" method="post">
+      {% csrf_token %}
+      <input type="text" id="review__title" name="review__title" value="{{ review.title }}">
+      <textarea name="review__text" id="review__text" cols="30" rows="10">
+        {{ review.content }}
+      </textarea>
+      <div class="center">
+        <button class="btn btn--comment" type="submit">Post</button>
+      </div>
+    </form>
+  </div>
 {% endblock content %}

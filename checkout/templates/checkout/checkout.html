@@ -2,70 +2,78 @@
 {% load static %}
 
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
 
-    <div class="checkout-container">
-        <div class="checkout">
-            <h2 class="checkout__title">Order summary</h2>
-            <div class="checkout__info">
-                {% if order_time %}
-                <span>{{ order_time }}</span>
-                {% endif %}
-            </div>
-            <hr class="hr--checkout">
-    
-            <table>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                </tr>
-                {% for item in bag_items %}
-                    <tr>
-                    <td>{{ item.product }} ({{ item.size }})</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>€{{ item.total }}</td>
-                    </tr>
-                {% endfor %}
-                <tr>
-                    <td>Delivery fee</td>
-                    <td></td>
-                    <td>€{{ delivery_fee|floatformat:2 }}</td>
-                </tr>
-              </table>
-              <hr class="hr--checkout">
-              <p class="checkout__total">TOTAL: €{{ grand_total }}</p>
-        </div>
-    
-    
-        <form class="checkout-form" action="{% url 'checkout' %}" method="post" id="payment-form">
-            {% csrf_token %}
-            <p class="checkout-preform-text">Please fill in your details to complete order.</p>
-            {{ form.as_p }}
-            <div id="card-element"></div>
-            <div id="card-errors" role="alert"></div>
-            <input type="hidden" value="{{ client_secret }}" name="client_secret">
-            {% if user.is_authenticated %}
-                <div style="text-align: center;">
-                    <p class="form-check-label" for="save-info">Save this delivery information to my profile</p>
-                    <input class="form-check-input" type="checkbox" id="save-info" name="save-info" checked>
-                </div>
-            {% else %}
-                <label class="form-check-label" for="id-save-info">
-                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
-                </label>
-            {% endif %}
-            <p class="loading">Processing payment...</p>
-            <button id="submit-button" class="btn btn--checkout">Complete Order</button>
-        </form>
-    
+  <div class="checkout-container">
+
+    <div class="checkout">
+      <h2 class="checkout__title">Order summary</h2>
+      <div class="checkout__info">
+        {% if order_time %}
+          <span>{{ order_time }}</span>
+        {% endif %}
+      </div>
+      <hr class="hr--checkout">
+
+      <table>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        {% for item in bag_items %}
+          <tr>
+            <td>{{ item.product }} ({{ item.size }})</td>
+            <td>{{ item.quantity }}</td>
+            <td>€{{ item.total }}</td>
+          </tr>
+        {% endfor %}
+        <tr>
+          <td>Delivery fee</td>
+          <td></td>
+          <td>€{{ delivery_fee|floatformat:2 }}</td>
+        </tr>
+      </table>
+      <hr class="hr--checkout">
+      <p class="checkout__total">TOTAL: €{{ grand_total }}</p>
     </div>
+
+    <form class="checkout-form" action="{% url 'checkout' %}" method="post" id="payment-form">
+      {% csrf_token %}
+      <p class="checkout-preform-text">
+        Please fill in your details to complete order.
+      </p>
+      {{ form.as_p }}
+      <div id="card-element"></div>
+      <div id="card-errors" role="alert"></div>
+      <input type="hidden" value="{{ client_secret }}" name="client_secret">
+      {% if user.is_authenticated %}
+        <div style="text-align: center;">
+          <p class="form-check-label" for="save-info">
+            Save this delivery information to my profile
+          </p>
+          <input class="form-check-input" type="checkbox" id="save-info" name="save-info" checked>
+      </div>
+      {% else %}
+        <label class="form-check-label" for="id-save-info">
+          <a class="text-info" href="{% url 'account_signup' %}">
+            Create an account
+          </a> or
+          <a class="text-info" href="{% url 'account_login' %}">login</a> 
+          to save this information
+        </label>
+      {% endif %}
+      <p class="loading">Processing payment...</p>
+      <button id="submit-button" class="btn btn--checkout">
+        Complete Order
+      </button>
+    </form>
+  </div>
 {% endblock content %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'js/checkout.js' %}"></script>
+  {{ block.super }}
+  {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+  {{ client_secret|json_script:"id_client_secret" }}
+  <script src="{% static 'js/checkout.js' %}"></script>
 {% endblock %}

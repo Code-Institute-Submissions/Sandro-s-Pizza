@@ -1,20 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
-
-    <div class="message">
-        <h2 class="message__title">Thank you for your order!</h2>
-        <p class="message__text">
-            Confirmation email has been sent to <span>{{ order.email }}</span>. Our delivery driver will be in contact with you shortly.
-        </p>
-        <a class="message__link" href="{% url 'index' %}">Go back to index page</a>
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  {% if user.is_anonymous %}
+    <div class="subscribe">
+      <p class="subscribe__text">Join us today and get free delivery!</p>
+      <a href="{% url 'account_signup' %}" class="subscribe__btn btn">
+        JOIN NOW
+      </a>
     </div>
+  {% endif %}
 
+  <div class="message">
+    <h2 class="message__title">Thank you for your order!</h2>
+    <p class="message__text">
+      Confirmation email has been sent to <span>{{ order.email }}</span>. Our delivery driver will be in contact with you
+      shortly.
+    </p>
+    <a class="message__link" href="{% url 'index' %}">Go back to index page</a>
+  </div>
 {% endblock content %}

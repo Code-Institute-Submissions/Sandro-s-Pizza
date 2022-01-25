@@ -1,31 +1,31 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    {% if user.is_anonymous %}
-        <div class="subscribe">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-    {% endif %}
-    <p class="add-edit-item">Add new item</p>
-    <div class="new-product">
-        <form class="form-item" action="{% url 'add_product' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn add-product" type="submit">Add product</button>
-        </form>
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  {% if user.is_anonymous %}
+    <div class="subscribe">
+      <p class="subscribe__text">Join us today and get free delivery!</p>
+      <a href="{% url 'account_signup' %}" class="subscribe__btn btn">
+        JOIN NOW
+      </a>
     </div>
-
-
+  {% endif %}
+  <p class="add-edit-item">Add new item</p>
+  <div class="new-product">
+    <form class="form-item" action="{% url 'add_product' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn add-product" type="submit">Add product</button>
+    </form>
+  </div>
 {% endblock content %}
 
 {% block postloadjs %}
-    {{ block.super }}
-    <script type="text/javascript">
-        $('#new-image').change(function() {
-            var file = $('#new-image')[0].files[0];
-            $('#filename').text(`Selected image: ${file.name}`);
-        });
-    </script>
+  {{ block.super }}
+  <script type="text/javascript">
+    $('#new-image').change(function () {
+      var file = $('#new-image')[0].files[0];
+      $('#filename').text(`Selected image: ${file.name}`);
+    });
+  </script>
 {% endblock %}

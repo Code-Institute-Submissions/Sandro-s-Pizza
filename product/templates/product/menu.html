@@ -1,53 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
 
+  <div class="menu-container">
+    <img class="half-img" src="{% static 'images/bg-main-mobile.webp' %}" alt="">
 
-    <div class="menu-container">
-        <img class="half-img" src="{% static 'images/bg-main-mobile.webp' %}" alt="">
-
-        {% if user.is_anonymous %}
-        <div class="subscribe subscribe-desk">
-            <p class="subscribe__text">Join us today and get free delivery!</p>
-            <a href="{% url 'account_signup' %}" class="subscribe__btn btn">JOIN NOW</a>
-        </div>
-        {% endif %}
-
-        <div class="menu">
-            <h2 class="menu__title">Choose your pizza</h2>
-            {% if request.user.is_superuser %}
-            <a class="btn add-new-item" href="{% url 'add_product' %}">Add new item</a>
-            {% endif %}
-            {% for item in items %}
-            <div>
-                <a href="{% url 'item' item.id %}" class="product">
-                    <div class="product__img" style="background-image: url({{item.image.url}});"></div>
-                    <div class="product__info">
-                        <h3 class="product__name">{{ item.name }}</h3>
-                        <p class="product__description">{{ item.ingredients }}</p>
-                        <p class="product__price">
-                            €<span>{{ item.price }}</span>
-                        </p>
-                    </div>
-                </a>
-                {% if request.user.is_superuser %}
-                <div class="admin-controls">
-                    <a href="{% url 'edit_product' item.id %}">
-                        <i class="far fa-edit"></i>
-                    </a>
-                    <a href="{% url 'delete_product' item.id %}">
-                        <i class="far fa-trash-alt"></i>
-                    </a>
-                </div>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-
-    </div>
-
+    {% if user.is_anonymous %}
+      <div class="subscribe subscribe-desk">
+        <p class="subscribe__text">Join us today and get free delivery!</p>
+        <a href="{% url 'account_signup' %}" class="subscribe__btn btn">
+          JOIN NOW
+        </a>
+      </div>
+    {% endif %}
     
-
-
+    <!-- Menu -->
+    <div class="menu">
+      <h2 class="menu__title">Choose your pizza</h2>
+      {% if request.user.is_superuser %}
+        <a class="btn add-new-item" href="{% url 'add_product' %}">
+          Add new item
+        </a>
+      {% endif %}
+      {% for item in items %}
+        <div>
+          <a href="{% url 'item' item.id %}" class="product">
+            <div class="product__img" style="background-image: url({{item.image.url}});"></div>
+            <div class="product__info">
+              <h3 class="product__name">{{ item.name }}</h3>
+              <p class="product__description">{{ item.ingredients }}</p>
+              <p class="product__price">
+                €<span>{{ item.price }}</span>
+              </p>
+            </div>
+          </a>
+          {% if request.user.is_superuser %}
+            <div class="admin-controls">
+              <a href="{% url 'edit_product' item.id %}">
+                <i class="far fa-edit"></i>
+              </a>
+              <a href="{% url 'delete_product' item.id %}">
+                <i class="far fa-trash-alt"></i>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock content %}

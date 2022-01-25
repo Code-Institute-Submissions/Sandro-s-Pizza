@@ -1,79 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-    
-    <div class="item">
-        <div class="item-container">
-            <h2 class="item__title">{{ item.name }}</h2>
-            <p class="item__description">{{ item.ingredients }}</p>
-            <div class="item__img" style="background-image: url({{item.image.url}});"></div>
-            <form action="{% url 'add_item' item.id %}" method="post" class="item__form">
-                {% csrf_token %}
-                <select id="item-size" name="size">
-                    <option value="small">Small</option>
-                    <option value="normal" selected>Normal</option>
-                    <option value="large">Large</option>
-                </select>
-                
-                <div class="item__quantity">
-                    <div class="item__minus">-</div>
-                    <input type="number" name="quantity" id="item-quantity" min="1" value="1" >
-                    <div class="item__plus">+</div>
-                </div>
-    
-            
-                <button class="btn btn--item" type="submit">
-                    Add to order for €<span id="item-price">{{ item.price }}</span>
-                </button>
-                
-                <input type="hidden" name="url" value="{{ request.path }}">
-            </form>
+  <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
+  <div class="item">
+    <!-- Item container -->
+    <div class="item-container">
+      <h2 class="item__title">{{ item.name }}</h2>
+      <p class="item__description">{{ item.ingredients }}</p>
+      <div class="item__img" style="background-image: url({{item.image.url}});"></div>
+      <form action="{% url 'add_item' item.id %}" method="post" class="item__form">
+        {% csrf_token %}
+        <select id="item-size" name="size">
+          <option value="small">Small</option>
+          <option value="normal" selected>Normal</option>
+          <option value="large">Large</option>
+        </select>
+        <div class="item__quantity">
+          <div class="item__minus">-</div>
+          <input type="number" name="quantity" id="item-quantity" min="1" value="1">
+          <div class="item__plus">+</div>
         </div>
-
-
-        <hr class="hr-index">
-
-        <div class="comment">
-            <h2 class="comment__title">User reviews</h2>
-            {%  if user.is_authenticated %}
-                <p class="comment__add">Leave a review</p>
-                <form class="comment__new" action="{% url 'add_review' item.id %}" method="post">
-                    {% csrf_token %}
-                    <input type="text" id="review__title" name="review__title" placeholder="Review title">
-                    <textarea name="review__text" id="review__text" cols="30" rows="10"></textarea>
-                    <div class="center">
-                        <button class="btn btn--comment" type="submit">Post</button>
-                    </div>
-                </form>
-            {% endif %}
-            {% if reviews %}
-                {% for review in reviews %}
-                <div class="comment-single">
-                    <div class="comment-single__title">
-                        {% if request.user == review.user_profile or request.user.is_superuser%}
-                        <div class="comment-single__btns">
-                            <a href="{% url 'edit_review' review.id %}">
-                                <i class="far fa-edit"></i>
-                            </a>
-                            <a href="{% url 'delete_review' item.id review.id %}">
-                                <i class="far fa-trash-alt"></i>
-                            </a>
-                        </div>
-                        {% endif %}
-                        <p>{{ review.title }}</p>
-                        <p>{{ review.user_profile }}</p>
-                    </div>
-                    <div class="comment-single__text">{{ review.content }}
-                    </div>
-                </div>
-                {% endfor %}
-            {% else %}
-            <p style="text-align: center; width: 100%;">No reviews yet.</p>
-            {% endif %}
-        </div>
-
+        <button class="btn btn--item" type="submit">
+          Add to order for €<span id="item-price">{{ item.price }}</span>
+        </button>
+        <input type="hidden" name="url" value="{{ request.path }}">
+      </form>
     </div>
-
-
+    <hr class="hr-index">
+    <!-- User reviews -->
+    <div class="comment">
+      <h2 class="comment__title">User reviews</h2>
+      {%  if user.is_authenticated %}
+        <p class="comment__add">Leave a review</p>
+        <form class="comment__new" action="{% url 'add_review' item.id %}" method="post">
+          {% csrf_token %}
+          <input type="text" id="review__title" name="review__title" placeholder="Review title">
+          <textarea name="review__text" id="review__text" cols="30" rows="10"></textarea>
+          <div class="center">
+            <button class="btn btn--comment" type="submit">Post</button>
+          </div>
+        </form>
+      {% endif %}
+      {% if reviews %}
+        {% for review in reviews %}
+          <div class="comment-single">
+            <div class="comment-single__title">
+              {% if request.user == review.user_profile or request.user.is_superuser%}
+                <div class="comment-single__btns">
+                  <a href="{% url 'edit_review' review.id %}">
+                    <i class="far fa-edit"></i>
+                  </a>
+                  <a href="{% url 'delete_review' item.id review.id %}">
+                    <i class="far fa-trash-alt"></i>
+                  </a>
+                </div>
+              {% endif %}
+              <p>{{ review.title }}</p>
+              <p>{{ review.user_profile }}</p>
+            </div>
+            <div class="comment-single__text">
+              {{ review.content }}
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p style="text-align: center; width: 100%;">No reviews yet.</p>
+      {% endif %}
+    </div>
+  </div>
 {% endblock content %}
