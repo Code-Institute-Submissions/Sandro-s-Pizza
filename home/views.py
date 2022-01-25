@@ -6,6 +6,7 @@ from product.models import Item
 
 
 def index(request):
+    """Renders index page"""
     context = {
         'items': Item.objects.all()
     }
@@ -13,6 +14,7 @@ def index(request):
 
 
 def contact(request):
+    """Renders contact page and send the message via email"""
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -36,12 +38,15 @@ def contact(request):
 
 
 def message_sent(request):
+    """Renders message sent page"""
     return render(request, "home/message_sent.html")
 
 
 def handler_500(request):
+    """Handles 500 error"""
     return render(request, "home/404.html")
 
 
 def handler_404(request, exception):
+    """Handles 404 error"""
     return render(request, "home/404.html")
