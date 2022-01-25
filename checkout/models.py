@@ -4,9 +4,11 @@ from django.db.models import Sum
 from product.models import Item
 from profiles.models import UserProfile
 
+
 class Order(models.Model):
+    """Order model class"""
     user_profile = models.ForeignKey(
-        UserProfile, on_delete=models.SET_NULL, 
+        UserProfile, on_delete=models.SET_NULL,
         null=True, blank=True, related_name='orders')
     full_name = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
@@ -23,23 +25,28 @@ class Order(models.Model):
         max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
+        """Generates unique id number"""
         return uuid.uuid4().hex.upper()
 
     def save(self, *args, **kwargs):
+        """Saves order number to Order model"""
         if not self.order_number:
             self.order_number = self._generate_order_number()
         super().save(*args, **kwargs)
 
     def update_total(self):
+        """Updates total price of the order"""
         self.order_total = self.orderitems.aggregate(
             Sum('orderitem_total'))['orderitem_total__sum'] or 0
         self.save()
 
     def __str__(self):
+        """Overrides default string method"""
         return self.order_number
 
 
 class OrderItem(models.Model):
+    """Order item model class"""
     order = models.ForeignKey(
         Order, on_delete=models.CASCADE, related_name='orderitems')
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
@@ -49,4 +56,5 @@ class OrderItem(models.Model):
         max_digits=10, decimal_places=2, null=True, default=0)
 
     def __str__(self):
+        """Overrides default string method"""
         return f'{self.item.name} / {self.order.order_number}'

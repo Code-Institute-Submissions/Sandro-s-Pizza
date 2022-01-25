@@ -14,6 +14,7 @@ import json
 
 @require_POST
 def cache_checkout_data(request):
+    """Caches data on checkout or returns error message"""
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -23,19 +24,22 @@ def cache_checkout_data(request):
             'username': request.user,
         })
         return HttpResponse(status=200)
-    except Exception as e:
+    except Exception as error:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=error, status=400)
 
 
 def checkout(request):
+    """
+    Checkout function which gets data from checkout form / session variable, and uses it to create and save order in database.
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
+        # Get data from session and from checkout form
         bag = request.session.get('bag', {})
-
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -45,6 +49,7 @@ def checkout(request):
             'city': request.POST['city'],
         }
         form = OrderForm(form_data)
+        # Save Order item for every item in the session bag
         if form.is_valid():
             order = form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
@@ -85,7 +90,7 @@ def checkout(request):
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-
+    # Handles GET request
     else:
         bag = request.session.get('bag', {})
         if not bag:
@@ -101,7 +106,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
         form = OrderForm()
-
+        # Pre-fills the form for logged in users
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
