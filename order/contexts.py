@@ -4,6 +4,7 @@ import datetime
 
 
 def contexts(request):
+    """Returns variables which are available globally"""
     bag_items = []
     grand_total = 0
     if request.user.is_authenticated:
