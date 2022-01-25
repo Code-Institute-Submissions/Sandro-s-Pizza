@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
-from .forms import ContactForm
 from product.models import Item
+from .forms import ContactForm
 
 
 def index(request):

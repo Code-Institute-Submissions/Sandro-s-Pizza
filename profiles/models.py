@@ -22,7 +22,7 @@ class UserProfile(models.Model):
         """Overrides default string method"""
         return self.user.username
 
-    
+
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """

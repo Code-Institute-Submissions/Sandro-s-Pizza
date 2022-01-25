@@ -1,15 +1,15 @@
+import json
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
 from django.contrib import messages
-from .forms import OrderForm
-from .models import Order, OrderItem
-from profiles.forms import UserProfileForm
+import stripe
 from profiles.models import UserProfile
 from product.models import Item
 from order.contexts import contexts
-import stripe
-import json
+from profiles.forms import UserProfileForm
+from .models import Order, OrderItem
+from .forms import OrderForm
 
 
 @require_POST
@@ -32,7 +32,8 @@ def cache_checkout_data(request):
 
 def checkout(request):
     """
-    Checkout function which gets data from checkout form / session variable, and uses it to create and save order in database.
+    Checkout function which gets data from checkout form / session variable,\
+        and uses it to create and save order in database.
     """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -74,7 +75,7 @@ def checkout(request):
                             quantity=quantity,
                             item_size=size,
                             orderitem_total=orderitem_total
-                        )                     
+                        )
                         order_item.save()
                 except Item.DoesNotExist:
                     messages.error(request, (

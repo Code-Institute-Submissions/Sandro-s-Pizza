@@ -151,7 +151,7 @@ def delete_product(request, item_id):
     if not request.user.is_superuser:
         messages.error(request, 'Permission denied.')
         return redirect(reverse('index'))
-    item = get_object_or_404(Item, pk=item_id)
-    item.delete()
+    pizza_item = get_object_or_404(Item, pk=item_id)
+    pizza_item.delete()
     messages.success(request, 'Item deleted!')
     return redirect(reverse('menu'))

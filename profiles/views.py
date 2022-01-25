@@ -9,15 +9,15 @@ from .forms import UserProfileForm
 @login_required
 def profile(request):
     """ Display the user's profile. """
-    profile = get_object_or_404(UserProfile, user=request.user)
+    get_profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=get_profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully')
 
-    form = UserProfileForm(instance=profile)
-    orders = profile.orders.all()[::-1]
+    form = UserProfileForm(instance=get_profile)
+    orders = get_profile.orders.all()[::-1]
 
     context = {
         'form': form,
@@ -32,7 +32,7 @@ def saved_order(request, order_number):
     """Renders specific single order in order history"""
     order = get_object_or_404(Order, order_number=order_number)
     # Check if user is allowed to see the order
-    if not (str(order.user_profile) == request.user.username):
+    if not str(order.user_profile) == request.user.username:
         messages.error(request, 'Permission denied.')
         return redirect(reverse('index'))
     context = {
