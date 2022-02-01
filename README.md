@@ -162,6 +162,18 @@ Order table shows details about the full order and user's delivery details. Tabl
 # DESIGN
 [Back to table of contents](#table-of-contents)
 
+## Colour scheme
+
+Website uses simplistic blue and white colour scheme, with tomato red used for checkout popup.
+
+## Imagery
+
+Images in title sections are showing pizza themed image. Purpose of images is to give clear idea of the website theme and also to make it visually attractive. Every pizza item has image of its own to describe pizza in more detail. As a new pizza is uploaded by admin new image can be added too.
+
+## Typography
+
+The 'Lato' font is the main font used throughout the whole website with 'Sans Serif' as the fallback font in case for any reason the font isn't being imported into the site correctly. For navbar items 'Staatliches' font is used with 'Cursive' as the fallback font. For review cards 'Georgia' font is used.
+
 ---
 
 # FEATURES AND FUNCTIONALITY
