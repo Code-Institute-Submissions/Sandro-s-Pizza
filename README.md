@@ -179,6 +179,51 @@ The 'Lato' font is the main font used throughout the whole website with 'Sans Se
 # FEATURES AND FUNCTIONALITY
 [Back to table of contents](#table-of-contents)
 
+
+Website can be used by registered and non registered users. In case user is registered there are extra features like adding review for each pizza with possibility of editing or completely removing the review. Registered users can also save their details for future purchases.
+
+## Menu page
+
+On menu page user can easily navigate through all pizzas in the menu and view each pizza's details by pressing pizza card. Menu page also shows sign up banner with link to sign up page in case user is not yet registered.
+
+![menu](/documentation/features/001.png)
+
+## Pizza details page
+
+On this page user can see details about pizza, add size and quantity of this particular pizza to the order, can view pizza reviews and if reqistered can add own reviews.
+
+![menu](/documentation/features/002.png)
+
+## Adding pizza to order
+
+By pressing "Add to order" button pizza is added to the order and user is redirected to the menu page in case he wants to ad more pizzas. Pop up is displayed with current order and basket icon in navbar is updated with current order amount.
+
+![menu](/documentation/features/003.png)
+
+## Editing the order
+
+By pressing checkout now on the pop up button, basket icon in navigation bar or "manage order" i navigation menu on mobile user will be redirected to the page where order can be modified before going to the payment screen. On this page each item can be modified by adding or deducting quantity or even completely removed from the order.
+
+![menu](/documentation/features/004.png)
+
+## Paying for the order
+
+By pressing "Proceed to payment" button user will be redirected to checkout page. On this page summary of the order can be seen. There is a form which must be filled by user befor confirming the order. Registered users have option to save their info for future orders. Unregistered users can still register or login prior to confirming the order.
+
+![menu](/documentation/features/005.png)
+
+## Order confirmation
+
+After the order is made confirmation screen appears. Also, confirmation email is sent to the users email with their order details.
+
+![menu](/documentation/features/006.png)
+
+## User profile and order history
+
+If users are registered they can edit their profile and see order history in the "Edit profile" section. All orders are shown in card items and by clicking on each order full order details are displayed.
+
+![menu](/documentation/features/007.png)
+
 ---
 
 # TESTING
