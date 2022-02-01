@@ -51,7 +51,7 @@
 
 - *As a first time visitor*, I want to be able to change my order before completion
 
-- *As a first time visitor*, I want to be make payments in an easy and secure way
+- *As a first time visitor*, I want to make payments in an easy and secure way
 
 - *As a first time visitor*, I want to be notified of my purchases by email
 
@@ -88,6 +88,34 @@
 
 # DATABASE SCHEMA
 [Back to table of contents](#table-of-contents)
+
+For this project relational database was used. Database schema consists of 6 tables: user (provided by Django by default), user profile, item, review, order item and order.
+
+![db-schema](/documentation/db-schema.png)
+
+## User
+
+This is default table provided by Django.
+
+## User Profile
+
+User Profile table has one to one relationship with User table, so in a way we can say that it extends User table. Other table fields are *Phone number*, *City*, *Address 1* and *Address 2*. All of the remaining fields are of CharField type.
+
+## Item
+
+Item table shows details about each item in the store (in this case each pizza). Table fields are *Name* (CharField type), *Ingredients* (CharField type), *Price* (Decimal type) and *Image* (ImageField type).
+
+## Review
+
+Review table shows details about reviews and their authors. Table fields are *User Profile* (connected with foreign key to User Profile table), *Item* (connected with foreign key to Item table), *Title* (CharField type) and *Content* (TextField type).
+
+## Order Item
+
+Order item table shows details about each single item in the users order. Table fields are *Order* (connected with foreign key to Order table), *Item* (connected with foreign key to Item table), *Item size* (CharField type), *Quantity* (Integer type) and *Order item total* (Decimal type).
+
+## Order
+
+Order table shows details about the full order and user's delivery details. Table fields are *User Profile* (connected with foreign key to User Profile table), *Full name* (CharField type), *Email* (EmailField type), *Phone number* (CharField type), *Address 1* (CharField type), *Address 2* (CharField type), *City* (CharField type), *Date* (DateTime type), *Order number* (CharField type), *Order total* (Decimal type), *Original bag* (TextField type) and *Stripe pid* (CharField type).
 
 ---
 
