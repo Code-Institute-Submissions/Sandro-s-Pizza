@@ -41,6 +41,8 @@
       -  [Testing site owners goals](#testing-site-owners-goals)
 - [DEPLOYMENT](#deployment)
 - [CREDITS](#credits)
+  -  [Code credits](#code-credits)
+  -  [Media and content credits](#media-and-content-credits)
   -  [Acknowledgements](#acknowledgements)
 
 ---
@@ -375,6 +377,164 @@ If users are registered they can edit their profile and see order history in the
 # CREDITS
 [Back to table of contents](#table-of-contents)
 
+## Code credits
+
+CODE CREDIT: [https://stripe.com/docs/payments/accept-a-payment](https://stripe.com/docs/payments/accept-a-payment)
+CODE CREDIT: [https://stripe.com/docs/stripe-js](https://stripe.com/docs/stripe-js)
+
+This is JavaScript code from Stripe.com which is used for Stripe functionality in Checkout.js file.
+
+```
+var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+var clientSecret = $('#id_client_secret').text().slice(1, -1);
+var stripe = Stripe(stripePublicKey);
+var elements = stripe.elements();
+var style = {
+    base: {
+        color: '#000',
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+            color: '#aab7c4'
+        }
+    },
+    invalid: {
+        color: '#dc3545',
+        iconColor: '#dc3545'
+    }
+};
+var card = elements.create('card', {style: style});
+card.mount('#card-element');
+
+// Handle realtime validation errors on the card element
+card.addEventListener('change', function (event) {
+    var errorDiv = document.getElementById('card-errors');
+    if (event.error) {
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${event.error.message}</span>
+        `;
+        $(errorDiv).html(html);
+    } else {
+        errorDiv.textContent = '';
+    }
+});
+
+// // Handle form submit
+var form = document.getElementById('payment-form');
+
+form.addEventListener('submit', function(ev) {
+    ev.preventDefault();
+    card.update({ 'disabled': true});
+    $('#submit-button').attr('disabled', true);
+    $('.loading').show();
+
+    var saveInfo = Boolean($('#save-info').attr('checked'));
+    // From using {% csrf_token %} in the form
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    var postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+    var url = '/checkout/cache_checkout_data/';
+    $.post(url, postData).done(function () {
+        stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: $.trim(form.full_name.value),
+                    phone: $.trim(form.phone_number.value),
+                    email: $.trim(form.email.value),
+                    address:{
+                        line1: $.trim(form.street_address1.value),
+                        line2: $.trim(form.street_address2.value),
+                        city: $.trim(form.city.value),
+                    }
+                }
+            },
+            shipping: {
+                name: $.trim(form.full_name.value),
+                phone: $.trim(form.phone_number.value),
+                address: {
+                    line1: $.trim(form.street_address1.value),
+                    line2: $.trim(form.street_address2.value),
+                    city: $.trim(form.city.value),
+                }
+            },
+        }).then(function(result) {
+            if (result.error) {
+                var errorDiv = document.getElementById('card-errors');
+                var html = `
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                $(errorDiv).html(html);
+                $('.loading').hide();
+                card.update({ 'disabled': false});
+                $('#submit-button').attr('disabled', false);
+            } else {
+                if (result.paymentIntent.status === 'succeeded') {
+                    form.submit();
+                }
+            }
+        });
+    }).fail(function () {
+        // just reload the page, the error will be in django messages
+        location.reload();
+    })
+});
+```
+
+CODE CREDIT: [https://github.com/karlhadwen/carousel/blob/master/app.js](https://github.com/karlhadwen/carousel/blob/master/app.js)
+
+Code for the carousel on the main page was taken, modified and used in carousel.js file.
+
+```
+let carousel = document.getElementsByClassName("pizza-carousel__item")
+let carouselPosition = 0
+let carouselLength = carousel.length
+
+if (carousel.length > 0) {
+    setInterval(moveToNextSlide, 5000);
+}
+
+function updateCarouselPosition() {
+    for (let item of carousel) {
+        item.classList.remove('pizza-carousel__item--active');
+    }
+    carousel[carouselPosition].classList.add('pizza-carousel__item--active');
+}
+
+function moveToNextSlide() {
+    if (carouselPosition === carouselLength - 1) {
+        carouselPosition = 0;
+    } else {
+        carouselPosition++;
+    }
+    updateCarouselPosition();
+}
+
+function moveToPrevSlide() {
+    if (carouselPosition === 0) {
+        carouselPosition = carouselLength - 1;
+    } else {
+        carouselPosition--;
+    }
+    updateCarouselPosition();
+}
+```
+
+** SPECIAL NOTE: The whole project is greatly inspired by "Boutique Ado" project from Code Institute's Software development program which was used as a reference for many functionalities throughout the website. The link to the "Boutique Ado" project can be found here: [Boutique Ado Project](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546) **
+
+## Media and content credits
+  
+  - All images for the website are downloaded from [unsplash](https://unsplash.com/) website with free licence.
+  
 ## Acknowledgements
 
 - My mentor Felipe Souza Alarcon for continuous helpful feedback
