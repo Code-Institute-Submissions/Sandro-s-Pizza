@@ -2,6 +2,8 @@
 
 **Sandro's Pizza** is E-commerce website and it is part of my 4th milestone project in **Code Institute's Full Stack Software Development Course**. Purpose of the website is to demonstrate proficiency in creating full stack application. Website allows users to make pizza delivery orders, pay for the order and save their details in database for future orders if needed.
 
+[Link to the project](https://sandros-pizza.herokuapp.com/)
+
 ---
 
 # TABLE OF CONTENTS:
