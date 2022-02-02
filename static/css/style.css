@@ -1438,12 +1438,21 @@ li {
     }
 
     .comment__title {
-        margin-bottom: 0;
+        margin-top: 25px;
     }
 
     .comment-single {
         width: 80%;
         margin: 10px auto;
+    }
+
+    .comment__new {
+        width: 40vw;
+        margin: 50px auto;
+    }
+
+    .form-item {
+        width: 40vw;
     }
 
     .btn--item {
