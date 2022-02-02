@@ -48,6 +48,7 @@ li {
     width: 200px;
     font-size: 1.5rem;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px black;
 }
 
 .error-message {
@@ -127,8 +128,8 @@ li {
     width: 100%;
     padding: 10px;
     background-color: rgb(39, 0, 146);
+    box-shadow: 0px 0px 10px 0px black;
     z-index: 1;
-
 }
 
 .navbar__logo {
@@ -268,6 +269,7 @@ li {
     padding: 10px;
     top: -3px;
     text-align: center;
+    box-shadow: 0px 0px 10px 0px black;
 }
 
 .subscribe__text,
@@ -278,6 +280,8 @@ li {
 .subscribe__btn {
     background-color: tomato;
     border-color: white;
+    box-shadow: none;
+    margin-top: 10px;
 }
 
 .pizza-carousel {
@@ -318,6 +322,7 @@ li {
     height: 53vw;
     margin: 0 auto;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px black;
 }
 
 .pizza-carousel__description {
@@ -331,6 +336,10 @@ li {
 
 .pizza-carousel__btn {
     margin: 25px auto;
+}
+
+.about-container {
+    box-shadow: 0px 0px 10px 0px black;
 }
 
 .about__title {
@@ -477,6 +486,7 @@ li {
     margin-top: 10px;
     border-radius: 5px;
     background-size: cover;
+    box-shadow: 0px 0px 10px 0px black;
 }
 
 .item__quantity {
@@ -1363,6 +1373,7 @@ li {
 
     .review {
         margin: 50px 20px;
+        box-shadow: 0px 0px 10px 0px black;
     }
 
     .review__title {
