@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
   <img class="bg-main" src="{% static 'images/bg-main-mobile.webp' %}" alt="pizza on wooden table - top perspective">
-  <div class="bg-main__desktop" style="background-image: url(static/images/bg-main-desktop.webp);">
+  <div class="bg-main__desktop" style="background-image: url(https://sandros-pizza.s3.eu-central-1.amazonaws.com/static/images/bg-main-desktop.webp);">
     <a href="{% url 'menu' %}" class="order-now btn">ORDER NOW</a>
   </div>
   <!-- Subscription banner -->
@@ -21,7 +21,7 @@
     <h2 class="pizza-carousel__title">Most popular</h2>
     {% for item in items %}
       <div class="pizza-carousel__item animate__animated animate__fadeIn">
-        <div class="pizza-carousel__img" style="background-image: url(media/{{item.image}});"></div>
+        <div class="pizza-carousel__img" style="background-image: url({{item.image.url}});"></div>
         <p class="pizza-carousel__description">
           {{ item.name }} | €<span>{{ item.price }}</span>
         </p>
