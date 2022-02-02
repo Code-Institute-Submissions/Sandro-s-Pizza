@@ -1167,10 +1167,6 @@ li {
     margin-bottom: 25px;
 }
 
-@media only screen and (min-width: 576px) {
-
-}
-
 @media only screen and (min-width: 992px) and (orientation: landscape) {
     
     .main-container {
@@ -1393,6 +1389,10 @@ li {
         overflow: scroll;
     }
 
+    .admin-controls {
+        right: 30px;
+    }
+
     .product {
         width: 95%;
         margin: 5px auto;
@@ -1410,7 +1410,7 @@ li {
     .product__price {
         position: absolute;
         top: 0px;
-        right: 5px;
+        right: 20px;
     }
 
     .subscribe-desk {
