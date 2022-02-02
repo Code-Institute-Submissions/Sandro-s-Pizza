@@ -13,12 +13,25 @@
       -  [Site owners goals](#site-owners-goals)
 - [WIREFRAMES](#wireframes)
 - [DATABASE SCHEMA](#database-schema)
+  -  [User](#ser)
+  -  [User Profile](#user-profile)
+  -  [Item](#item)
+  -  [Review](#review)
+  -  [Order Item](#order-item)
+  -  [Order](#order)
 - [TECHNOLOGIES USED](#technologies-used)
   -  [Languages](#languages)
   -  [Frameworks, libraries, programs and websites](#frameworks-libraries-programs-and-websites)
 - [DESIGN](#design)
+  -  [Colour scheme](#colour-scheme)
+  -  [Imagery](#imagery)
+  -  [Typography](#typography)
 - [FEATURES AND FUNCTIONALITY](#features-and-functionality)
 - [TESTING](#testing)
+  -  [Testing User Stories from User Experience Section](#testing-user-stories-from-user-experience-section)
+      -  [Testing first time visitors goals](#testing-first-time-visitors-goals)
+      -  [Testing frequent users goals](#testing-frequent-users-goals)
+      -  [Testing site owners goals](#testing-site-owners-goals)
 - [DEPLOYMENT](#deployment)
 - [CREDITS](#credits)
   -  [Acknowledgements](#acknowledgements)
@@ -228,6 +241,122 @@ If users are registered they can edit their profile and see order history in the
 
 # TESTING
 [Back to table of contents](#table-of-contents)
+
+## Testing User Stories from User Experience Section
+
+### Testing first time visitors goals
+
+* As a first time visitor, I want to clearly understand the purpose of the website
+
+  -  Website is designed in a way that is clearly visible from the start that this is pizza delivery service. Main banner is pizza themed, there is a logo for "Sandro's Pizza" and CTA button to make an order.
+
+  [Example](/static/documentation/testing/user_stories/001.png)
+
+* As a first time visitor, I want to easily navigate through the website on any device or screen size
+
+  -  Device is responsive to different screen sizes so the user is able to navigate through site easily. There is navigation bar with all the main links on desktop size, or navigation menu on mobile size which appears by pressing toggle button.
+
+  [Example](/static/documentation/testing/user_stories/002.png)
+
+* As a first time visitor, I want to be able to make purchase without registering for account
+
+  -  User is able to make a purchase without registering for account.
+
+  [Example](/static/documentation/testing/user_stories/003.png)
+
+* As a first time visitor, I want to have option to create account if I wish
+
+  -  There is "Join us" button in navigation bar, and if user is not registered or logged in, "join us" banner is shown throughout the website.
+
+  [Example](/static/documentation/testing/user_stories/004.png)
+
+* As a first time visitor, I want to easily search for products and add them to the order
+
+  -  All items available for order can easily be found in "menu" page. In case there are too many items to look for, user can use the search option on top of the page on desktop size or in navigation menu on mobile size.
+
+  [Example](/static/documentation/testing/user_stories/005.png)
+
+* As a first time visitor, I want to be able to view product details before purchasing it
+
+  -  By clicking on each single item on menu page user is redirected to dedicated page of the item where all details are shown.
+
+  [Example](/static/documentation/testing/user_stories/006.png)
+
+* As a first time visitor, I want to be able to chose quantity and size of product
+
+  -  On item page user is able to select quantity and size of the order item.
+
+  [Example](/static/documentation/testing/user_stories/007.png)
+
+* As a first time visitor, I want to know status of my order at all times
+
+  -  At all times user can see status of his order basket in top right corner of the navigation bar. Also, when item is added to the order a pop up button is shown with current status of the basket and option to check out now.
+
+  [Example](/static/documentation/testing/user_stories/008.png)
+
+* As a first time visitor, I want to be able to change my order before completion
+
+  -  When user clicks on basket icon in the top right of the navigation bar or on the checkout pop up button is redirected to order page where all items can be changed before proceeding to payment. Quantity can be changed for every order item and every item can be deleted too.
+
+  [Example](/static/documentation/testing/user_stories/009.png)
+
+* As a first time visitor, I want to make payments in an easy and secure way
+
+  -  Stripe payment module is implemented to make card payments safe and secure.
+
+  [Example](/static/documentation/testing/user_stories/010.png)
+
+* As a first time visitor, I want to be notified of my purchases by email
+
+  -  After every successful purchase, an email with order details is sent to user's email address.
+
+  [Example](/static/documentation/testing/user_stories/011.png)
+
+### Testing frequent users goals
+
+* As a frequent user, I want to be able to easily log in to my account
+
+  -  User can easily sign in to the website using sign in button in navigation bar on desktop size or navigation menu on mobile size.
+
+  [Example](/static/documentation/testing/user_stories/012.png)
+
+* As a frequent user, I want to have records of my past orders attached to my profile
+
+  -  User can navigate to "edit profile" page where all past orders are attached chronologically. By pressing on each order card user can see full order details.
+
+  [Example](/static/documentation/testing/user_stories/013.png)
+
+* As a frequent user, I want to leave reviews of products
+
+  -  All registered users have option to leave a review of a product on the product page by pressing "leave review" button.
+
+  [Example](/static/documentation/testing/user_stories/014.png)
+
+* As a frequent user, I want to be able to edit or delete my reviews of products
+
+  -  If registered user has left a review for a product then there are also options to edit or delete the review by pressing small icons in upper right corner of the review card.
+
+  [Example](/static/documentation/testing/user_stories/015.png)
+
+### Testing site owners goals
+
+* As a site owner, I want to provide e-commerce service to easily sell my products
+
+  -  This website offers to sell pizzas to registered and non registered users in an easy and quick way.
+
+  [Example](/static/documentation/testing/user_stories/016.png)
+
+* As a site owner, I want to be able to add, update and delete products in database
+
+  -  If admin user is logged in, by navigating to menu page a new option to add item is shown. By pressing "Add item" button admin can easily upload new items to the database.
+
+  [Example](/static/documentation/testing/user_stories/017.png)
+
+* As a site owner, I want to make sure site is safe by providing access to certain areas only to permitted users
+
+  -  For most of the pages which are not available for non registered users, they will be redirected to sign in page if they attemt to acces it. If the page is restricted to admin only, all other users will receive flash message that access to the page is denied and will be routed to the main page.
+
+  [Example](/static/documentation/testing/user_stories/018.png)
 
 ---
 
