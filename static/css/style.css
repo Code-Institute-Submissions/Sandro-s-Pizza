@@ -38,6 +38,16 @@ li {
     display: none;
 }
 
+.btn,
+.search__btn,
+.checkout-popup__close,
+.item__plus,
+.item__minus,
+.flash__close,
+.comment__add {
+    cursor: pointer;
+}
+
 .btn {
     display: block;
     color: white !important;
