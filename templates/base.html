@@ -24,7 +24,7 @@
             </div>
             <div class="navbar__desktop-menu">
                 <form class="navbar__search" action="{% url 'menu' %}" method="get" style="margin-right: 20px;">
-                    <input class="search__input" type="text" name="q" id="q" placeholder="Search">
+                    <input class="search__input" type="text" name="q" placeholder="Search">
                     <button class="search__btn">
                         <i class="fas fa-search"></i>
                     </button>
@@ -74,7 +74,7 @@
             <div class="navbar__mobile-menu">
                 <i class="navbar__close navbar__button fas fa-times"></i>
                 <form class="navbar__search" action="{% url 'menu' %}" method="get">
-                    <input class="search__input" type="text" name="q" id="q" placeholder="Search">
+                    <input class="search__input" type="text" name="q" placeholder="Search">
                     <button class="search__btn">
                         <i class="fas fa-search"></i>
                     </button>
@@ -122,7 +122,7 @@
         {% block content %}
         {% endblock content %}
 
-        <!-- Checkout pop up button (add checkout--active class to activate) -->
+        <!-- Checkout pop up button (add checkout-active class to activate) -->
         {% if bag_items and show_bag %}
             <div class="checkout-popup">
                 <div class="checkout-popup__close">

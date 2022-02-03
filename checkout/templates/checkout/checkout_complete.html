@@ -13,10 +13,40 @@
 
   <div class="message">
     <h2 class="message__title">Thank you for your order!</h2>
+
     <p class="message__text">
-      Confirmation email has been sent to <span>{{ order.email }}</span>. Our delivery driver will be in contact with you
-      shortly.
+      Our delivery driver will be in contact with you shortly.
     </p>
+
+    {% if user.is_authenticated %}
+    <p class="message__text">
+      You can find your order history in your <a href="{% url 'profile' %}" style="font-weight: 900;">Profile Info</a>.
+    </p>
+    {% endif %}
+
+    <div class="order-details">
+      <p>#{{ order.order_number }}</p>
+      <p>Ordered on: {{ order.date }}</p>
+      <h3>Product details</h3>
+      <br>
+      {% for item in order.orderitems.all %}
+        <p>{{ item.quantity }}x {{ item.item }} ({{ item.item_size }}) - €{{ item.orderitem_total }}</p>
+      {% endfor %}
+      <br>
+      <p>Delivery fee: €{{ delivery_fee|floatformat:2 }}</p>
+      <p><strong>Order total: €{{ order.order_total }}</strong></p>
+      <h3>Delivery details</h3>
+      <p>Full name: {{ order.full_name }}</p>
+      <p>Email: {{ order.email }}</p>
+      <p>Phone number: {{ order.phone_number }}</p>
+      <p>Addres: {{ order.street_address1 }}
+        {% if order.street_address2 %}
+          <span>, {{ order.street_address2 }}</span>
+        {% endif %}
+      </p>
+      <p>City: {{ order.city }}</p>
+    </div>
+
     <a class="message__link" href="{% url 'index' %}">Go back to index page</a>
   </div>
 {% endblock content %}

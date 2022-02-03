@@ -24,14 +24,5 @@ function moveToNextSlide() {
     updateCarouselPosition();
 }
 
-function moveToPrevSlide() {
-    if (carouselPosition === 0) {
-        carouselPosition = carouselLength - 1;
-    } else {
-        carouselPosition--;
-    }
-    updateCarouselPosition();
-}
-
 // Adds active class to first item in carousel image on load
 $(".pizza-carousel__item")[0].classList.add('pizza-carousel__item--active');
