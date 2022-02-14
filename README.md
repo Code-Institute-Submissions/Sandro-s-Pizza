@@ -2,6 +2,8 @@
 
 **Sandro's Pizza** is E-commerce website and it is part of my 4th milestone project in **Code Institute's Full Stack Software Development Course**. Purpose of the website is to demonstrate proficiency in creating full stack application. Website allows users to make pizza delivery orders, pay for the order and save their details in database for future orders if needed.
 
+![mockup](/documentation/mockup.PNG)
+
 [Link to the project](https://sandros-pizza.herokuapp.com/)
 
 ---
@@ -37,11 +39,42 @@
   -  [Order confirmation](#order-confirmation)
   -  [User profile and order history](#user-profile-and-order-history)
 - [TESTING](#testing)
+  -  [Code tests](#code-tests)
+      - [HTML Code Test](#html-code-test-results)
+      - [CSS Code Test](#css-code-test-results)
+      - [JavaScript Code Test](#javascript-code-testing)
+      - [Python Code Test](#python-code-test-results)
+  -  [Responsiveness and browser tests](#responsiveness-and-browser-tests)
   -  [Testing User Stories from User Experience Section](#testing-user-stories-from-user-experience-section)
       -  [Testing first time visitors goals](#testing-first-time-visitors-goals)
       -  [Testing frequent users goals](#testing-frequent-users-goals)
       -  [Testing site owners goals](#testing-site-owners-goals)
+  -  [Manual Testing](#manual-testing)
+      -  [Ordering process](#ordering-process)
+      -  [Ordering product](#ordering-product)
+      -  [Managing the order](#managing-the-order)
+      -  [Completing the order](#completing-the-order)
+      -  [Signup user](#signup-user)
+      -  [Login and logout](#login-and-logout)
+      -  [Form errors](#form-errors)
+      -  [Adding reviews](#adding-reviews)
+      -  [Editing profile](#editing-profile)
+      -  [Adding/editing/deleting products (admin only)](#adding-editing-deleting-products-admin-only)
+      -  [Contact form](#contact-form)
+      -  [Page access](#page-access)
+      -  [Errors 404 and 500](#errors-404-and-500)
+  -  [Known bugs](#known-bugs)
 - [DEPLOYMENT](#deployment)
+  - [Prerequisites](#prerequisites)
+  - [Heroku deployment](#heroku-deployment)
+  - [Postgres set up](#postgres-set-up)
+  - [AWS - creating a bucket](#aws-creating-a-bucket)
+  - [AWS Creating a group](#aws-creating-a-group)
+  - [AWS creating policy](#aws-creating-policy)
+  - [AWS attach policy to the group](#aws-attach-policy-to-the-group)
+  - [AWS creating a user](#aws-creating-a-user)
+  - [Connecting django with AWS](#connecting-django-with-AWS)
+  - [Environment variables](#environment-variables)
 - [CREDITS](#credits)
   -  [Code credits](#code-credits)
   -  [Media and content credits](#media-and-content-credits)
@@ -253,6 +286,76 @@ If users are registered they can edit their profile and see order history in the
 # TESTING
 [Back to table of contents](#table-of-contents)
 
+## Code tests
+
+The [W3C Markup Validator](https://validator.w3.org/) and [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) services were used to validate the HTML and CSS code of the project to ensure there were no syntax errors. [jsHint](https://jshint.com/) was used to test JavaScript code. [pep8online](http://pep8online.com/) was used to check if Python code is PEP8 compliant.
+
+### HTML Code Test Results:
+
+![html](/documentation/testing/code_testing/html.PNG)
+
+HTML code has no errors.
+
+### CSS Code Test Results:
+
+![css](/documentation/testing/code_testing/css.PNG)
+
+CSS Code has no errors.
+
+### JavaScript Code Testing:
+
+Following settings were used to test the code
+
+![js-settings](/documentation/testing/code_testing/javascript_settings.jpg)
+
+script.js test results:
+
+![script.js](/documentation/testing/code_testing/js-script.PNG)
+
+carousel.js test results:
+
+![carousel.js](/documentation/testing/code_testing/js-carousel.PNG)
+
+checkout.js test results:
+
+![checkout.js](/documentation/testing/code_testing/js-checkout.PNG)
+
+All tests passed with no issues
+
+### Python code test results:
+
+![python](/documentation/testing/code_testing/python.PNG)
+
+All tests passed with no major issues
+
+## Responsiveness and browser tests
+
+- The website was tested on [Google Chrome](/documentation/testing/browsers/chrome.PNG), [Microsoft Edge](/documentation/testing/browsers/edge.PNG), [Mozilla Firefox](/documentation/testing/browsers/mozilla.PNG) and [Opera browsers](/documentation/testing/browsers/opera.PNG).
+
+- Lighthouse test [results](/documentation/lighthouse.pdf).
+
+The website was viewed on a mobile, tablet and laptop devices such as iPhone XR, Lenovo Tab M10 HD and Lenovo Ideapad 3 laptop.
+
+  -  iPhone XR
+  ![mobile1](/static/documentation/testing/devices/mobile_01.PNG)
+  ![mobile2](/static/documentation/testing/devices/mobile_02.PNG)
+  ![mobile3](/static/documentation/testing/devices/mobile_03.PNG)
+
+  - Lenovo Tab M10 HD
+  ![tablet1](/static/documentation/testing/devices/tablet_01.jpeg)
+  ![tablet2](/static/documentation/testing/devices/tablet_02.jpeg)
+  ![tablet3](/static/documentation/testing/devices/tablet_03.jpeg)
+
+  - Lenovo Ideapad 3
+  ![laptop1](/static/documentation/testing/devices/laptop_01.PNG)
+  ![laptop2](/static/documentation/testing/devices/laptop_02.PNG)
+  ![laptop3](/static/documentation/testing/devices/laptop_03.PNG)
+
+- The website was tested on desktop and laptop computers on a variety of screen sizes using device toolbar option in Google Chrome developer tools.
+
+  -  Google Chrome developer tools
+  ![devtools](/static/documentation/testing/devices/devtools.PNG)
+
 ## Testing User Stories from User Experience Section
 
 ### Testing first time visitors goals
@@ -369,10 +472,271 @@ If users are registered they can edit their profile and see order history in the
 
   [Example](/static/documentation/testing/user_stories/018.png)
 
+## Manual testing
+
+### Ordering process
+
+In this section I have tested the whole ordering process to make sure user experiences a smooth process. I have made separate tests for each functionality in ordering process: ordering single item, changing the quantity and the size, adding item to the basket, changing the order prior to the checkout and finally making the payment and finalizing the order.
+
+### Ordering product
+
+By clicking on product card user is redirected to product page as expected. On product page user can select the quantity and the size of the product which also changes total price dynamically. By pressing "Add to order" button, basket amount in the top right corner gets updated, and checkout popup button is shown at the bottom of the screen with updated total amount.
+
+![001](/documentation/testing/manual_testing/001.gif)
+
+### Managing the order
+
+By clicking on checkout popup button or basket icon in the top right corner of the navbar, user is redirected to the page where they can change the quantity or completely remove certain item from the order. Testing results were as expected with both functionalities working.
+
+![002](/documentation/testing/manual_testing/002.gif)
+![003](/documentation/testing/manual_testing/003.gif)
+
+### Completing the order
+
+By clicking on "Proceed to payment" button user is redirected to the checkout page. On this page user has to input personal details and card number before completing the payment. By clicking on "Complete order" button Stripe transaction is initiated. User is informed of this by flashing "Processing payment..." text below the checkout form. After sucessfull payment confirmation page is shown. Testing results were as expected with all tested functionalities working.
+
+![004](/documentation/testing/manual_testing/004.gif)
+
+
+### Signup user
+
+By clicking on "Sign up" button user can easily create new account by inputting all details in the signup form. After all required details are provided the confirmation email is sent to the user to verify the account. Testing results were as expected with all tested functionalities working.
+
+![005](/documentation/testing/manual_testing/005.gif)
+
+### Login and logout
+
+By clicking Login/Logout buttons user can easily log in/out from the page. Testing results were as expected with both functionalities working.
+
+![006](/documentation/testing/manual_testing/006.gif)
+![007](/documentation/testing/manual_testing/007.gif)
+
+### Form errors
+
+If invalid input is provided to the form by the user, error messages are shown below the form.
+
+![008](/documentation/testing/manual_testing/008.gif)
+
+### Adding reviews
+
+By clicking on "Leave a review" button on product page user can leave a review for product. This review can also be edited or even deleted. Testing results were as expected with all tested functionalities working.
+
+![009](/documentation/testing/manual_testing/009.gif)
+![010](/documentation/testing/manual_testing/010.gif)
+![011](/documentation/testing/manual_testing/011.gif)
+
+### Editing profile
+
+By clicking on "Edit profile" button in navbar user can change profile contact details by submitting the form.
+
+![012](/documentation/testing/manual_testing/012.gif)
+
+### Order details
+
+After completing an order, this is automatically saved to database and past orders can be seen from edit profile menu. By clicking on the single order card the full order details can be accessed.
+
+![013](/documentation/testing/manual_testing/013.PNG)
+
+### Adding/editing/deleting products (admin only)
+
+Users with admin privileges have option to add, edit or delete products from database. When user with admin privileges navigates to menu page, "Add new item" button is shown. By clicking on this button admin users can add product via form. On menu page each product also has edit and delete buttons to easily edit or delete product. Testing results were as expected with all tested functionalities working.
+
+![014](/documentation/testing/manual_testing/014.gif)
+![015](/documentation/testing/manual_testing/015.gif)
+![016](/documentation/testing/manual_testing/016.gif)
+
+### Contact form
+
+Users can send their messages to the website admin via contact form. I have tested functionality of the form by sending the message and receiving the message in my email box and it is working as expected.
+
+![020](/documentation/testing/manual_testing/020.gif)
+
+### Page access
+
+This test ensures that unauthorized users can not access pages they are not supposed to see (ex. other users account or order details). I have tested this by manually copy/pasting links which should be restricted to certain users. There can be two scenarios - if user only needs to be logged in, in which case user is simply redirected to login screen. In other scenario user does not have access at all, in which case user is redirected to menu page with flash message notification. Testing results were as expected with all tested functionalities working.
+
+![017](/documentation/testing/manual_testing/017.PNG)
+![018](/documentation/testing/manual_testing/018.PNG)
+
+### Errors 404 and 500
+
+In case of page errors a custom page is displayed to the user with the link to go back to the main page.
+
+![019](/documentation/testing/manual_testing/019.PNG)
+
+## Known bugs
+
+- After deployment, Stripe weebhooks started throwing an error after the payment is complete. This causes that confirmation email cannot be sent to the user after successful purchase. However, since this is not a critical issue which breaks main functionality of the website I have decided to look into this issue in future. For the moment, after payment is successfully processed user can see order details straight away on the screen, and registered users have option to view past order details in their profiles.
+
 ---
 
 # DEPLOYMENT
 [Back to table of contents](#table-of-contents)
+
+## Prerequisites
+
+I have created the project by using Code Institute gitpod template and saved it to GitHub repository. During development, I have installed numerous packages using Pip. To include all packages in production, I saved all of them to requirements.txt file using pip3 freeze > requirements.txt command. I saved all environment variables to Heroku / GitPod settings to make sure that files with sensitive data are not pushed to the repository. Also, I made Procfile with instructions to Heroku to run gunicorn (package installed via pip) and to serve the Django app.
+
+
+## Heroku deployment
+
+- Log in to Heroku
+- Select "Create New App" option, add app name and region
+- Under deploy tab select GitHub as deployment method, search for GitHub repository and connect Heroku app with it
+- Enabled automatic deploys so project is automatically pushed to Heroku as well with every commit
+- Add Heroku app to allowed hosts inside of django settings.py file 
+
+```
+ALLOWED HOSTS = ['sandros-pizza.herokuapp.com', 'localhost'] 
+```
+
+## Postgres set up
+
+- Under resources tab search for "Heroku Postgres" add-on and add it to the app
+- In django app install dj_database package by using command pip3 install dj_database_url, and psycopg by using command pip3 install psycopg2-binary
+- In django settings.py file import dj_database_url and add database url to DATABASES variable
+- Add if statement to use postgres database if there is DATABASE_URL in environment settings
+
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES: {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+```
+
+- Run python3 manage.py migrate command to apply all migrations to postgres database
+
+## AWS creating a bucket
+
+- Log in to AWS
+- Open S3 services by searching for it in search menu
+- On S3 page click on "Create bucket" link
+- Creat new bucket by selecting bucket name to match app name
+- Select region closest to current location
+- Uncheck "Block all public access" checkbox to make bucket publicly available
+- When new bucket is created, click on "Properties" tab and turn on static website hosting
+- Under "Permissions" tab, add a CORS configuration which can be found in the instructions provided in the Code Institute Boutique-Ado mini-project
+
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+
+- Under "Bucket policy" tab generate new policy, copy it to the editor and save it. Policy should be generated using following settings
+
+```
+Select Type of Policy: S3 Bucket Policy
+Principal: *
+Actions: GetObject
+Bucket ARN: arn:aws:s3:::sandros-pizza
+```
+
+- Under "Access control list" select "list objects" to give access to it for everyone
+
+## AWS Creating a group
+
+- Search for IAM in the search bar at the top, and click on it to set up a group policy
+- Under "Access Management" on the left side, click on "User Groups" and create a new group
+- Enter group name and click "Create Group"
+
+## AWS creating policy
+
+- Go back to the "Access Management" section on the left side, and click on "Policies"
+- Click “Create Policy” and head over to the JSON tab, and select "Import Managed Policy"
+- Go to "AmazonS3FullAccess" then click "Import"
+- Copy/paste ARN to the code so that it looks like the below:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::sandros-pizza",
+                "arn:aws:s3:::sandros-pizza/*"
+            ]
+        }
+    ]
+}
+```
+
+- Click on "Next: Tags", "Next: Review", put in a name and click on "Create Policy"
+
+## AWS attach policy to the group
+
+- Click on the newly created group and go over to the "Permissions" tab
+- Click on the "Permissions" tab, and select "Attach Policy"
+- Select newly created policy and click "Add Permissions"
+
+## AWS creating a user
+
+- Click on "Users" on the left side menu, then "Add User"
+- Enter user name and tick the checkbox to give the user access, then click "Next: Permissions"
+- Add user to the group and keep clicking the next buttons until the end
+- Click to "Create user"
+- Download .csv file with access key to connect AWS with django
+
+## Connecting django with AWS
+
+- In django app install boto3 package using command pip3 install boto3
+- In django app install django-storages package using command pip3 install django-storages
+- Add 'storages' in installed apps in djangoo settings.py file
+- Create new file called custom_storages.py in django root folder with following code:
+
+```
+from django.conf import settings
+from storages.backends.s3boto3 import S3Boto3Storage
+
+class StaticStorage(S3Boto3Storage):
+    location = settings.STATICFILES_LOCATION
+
+class MediaStorage(S3Boto3Storage):
+    location = settings.MEDIAFILES_LOCATION
+```
+
+- In django settings.py file add if statement to use AWS if there is USE_AWS variable in environment variables.
+
+```
+if 'USE_AWS' in os.environ:
+
+    AWS_STORAGE_BUCKET_NAME = 'sandros-pizza'
+    AWS_S3_REGION_NAME = 'eu-central-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+```
+
+- Manually create a media folder in the S3 bucket and upload all of the site images into it
+
+## Environment variables
+
+- In Heroku settings tab, click on Reveal config vars
+- Add all config vars generated by AWS, Stripe, secret key, etc...
 
 ---
 
