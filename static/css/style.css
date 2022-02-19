@@ -418,6 +418,12 @@ li {
     margin: 25px auto;
 }
 
+.about-container {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+
 .about__title {
     margin-top: 50px;
 }
